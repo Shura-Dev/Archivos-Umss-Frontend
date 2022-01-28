@@ -1,0 +1,215 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title text-dark fw-bolder">Diplomas de Bachiller</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <h3 class="text-center fw-bolder text-primary text-muted">
+        FORMULARIO PARA NUEVO TITULO DE BACHILLER
+      </h3>
+      <div class="col-md-6">
+        <h3 class="fw-bolder text-center text-primary">DATOS DEL TITULO</h3>
+        <div class="card card-custom">
+          <!--begin::Form-->
+          <form class="form" [formGroup]="diplomaForm">
+            <div class="card-body">
+              <div class="form-group">
+                <label class="fw-bolder"> N.-Titulo</label>
+                <input
+                  type="number"
+                  class="form-control form-control-solid"
+                  placeholder="Numero de Titulo"
+                  formControlName="numero"
+                />
+              </div>
+              <div class="form-group">
+                <label for="example-date-input" class="fw-bolder">Fecha</label>
+                <input
+                  class="form-control form-control-solid"
+                  type="date"
+                  value="2011-08-19"
+                  id="example-date-input"
+                  formControlName="fecha"
+                />
+              </div>
+              <div class="form-group">
+                <label class="fw-bolder">Seleccione Grado</label>
+                <select class="form-control custom-select form-control-solid" formControlName="grado">
+                  <option selected>BACHILLER</option>
+                  <option>ACADEMICO</option>
+                </select>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-6">
+                  <label class="fw-bolder"> N.- Folio</label>
+                  <input
+                    type="number"
+                    class="form-control form-control-solid"
+                    placeholder="Numero de Folio"
+                    formControlName="folio"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="example-date-input" class="fw-bolder"
+                    >Fecha Folio</label
+                  >
+                  <input
+                    class="form-control form-control-solid"
+                    type="date"
+                    value="2011-08-19"
+                    id="example-date-input"
+                    formControlName="Ffolio"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="fw-bolder">Titulo en PDF</label>
+                <div></div>
+                <div class="form-control form-control-solid">
+                  <input
+                    type="file"
+                    class="custom-file-input"
+                    id="customFile"
+                    (change)="onFileSelected($event)"
+                    accept="application/pdf"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="fw-bolder">Antecedentes en PDF</label>
+                  <div></div>
+                  <div class="form-control form-control-solid">
+                    <input
+                    type="file"
+                    class="custom-file-input"
+                    id="customFile2"
+                    (change)="onFileSelected2($event)"
+                    accept="application/pdf"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleTextarea" class="text-dark fw-bolder"
+                  >Observaciones</label
+                >
+                <textarea
+                  class="form-control form-control-solid"
+                  rows="3"
+                  formControlName="observaciones"
+                ></textarea>
+              </div>
+            </div>
+          </form>
+          <!--end::Form-->
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3 class="fw-bolder text-center text-primary">DATOS PERSONALES</h3>
+        <div class="card card-custom">
+          <!--begin::Form-->
+          <form class="form" [formGroup]="diplomaForm">
+            <div class="card-body">
+              <div class="form-group row">
+                <div class="col-md-6">
+                  <label class="fw-bolder"> N.-CI</label>
+                  <input
+                    type="number"
+                    class="form-control form-control-solid"
+                    placeholder="Numero de Carnet"
+                    formControlName="ci"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="example-date-input" class="fw-bolder text-danger"
+                    >Expira</label
+                  >
+                  <input
+                    class="form-control form-control-solid"
+                    type="date"
+                    value="2011-08-19"
+                    id="example-date-input"
+                    formControlName="expiraCi"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="fw-bolder">N.- Pasaporte</label>
+                <input
+                  type="number"
+                  class="form-control form-control-solid"
+                  placeholder="Numero de Pasaporte"
+                  formControlName="pasaporte"
+                />
+              </div>
+              <div class="form-group">
+                <label class="fw-bolder"> Apellidos</label>
+                <input
+                  type="text"
+                  class="form-control form-control-solid"
+                  placeholder="Apellidos"
+                  formControlName="apellidos"
+                />
+              </div>
+              <div class="form-group">
+                <label class="fw-bolder"> Nombres </label>
+                <input
+                  type="text"
+                  class="form-control form-control-solid"
+                  placeholder="Nombres"
+                  formControlName="nombre"
+                />
+              </div>
+              <div class="form-group">
+                <label class="fw-bolder">Sexo</label>
+                <select class="form-control custom-select form-control-solid" value="asdfas" formControlName="sexo">
+                  <option selected>Masculino</option>
+                  <option>Femenino</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="fw-bolder">Nacionalidad</label>
+                <select class="form-control custom-select form-control-solid" formControlName="nacionalidad">
+                  <option selected>Bolivia</option>
+                </select>
+              </div>
+            </div>
+          </form>
+          <!--end::Form-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="closeLg()"
+    >
+      Cerrar
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="guardarDiploma
+      ()"
+    >
+      Guardar 
+    </button>
+  </div>
+</ng-template>
+
+<button class="btn btn-sm btn-light-primary" (click)="openLg(content)">
+  <span
+        [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'"
+        class="svg-icon svg-icon-3"
+      ></span>
+     Titulo 
+</button>
