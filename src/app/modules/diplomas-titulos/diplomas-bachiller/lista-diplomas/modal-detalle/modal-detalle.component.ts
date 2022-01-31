@@ -16,7 +16,7 @@ export class ModalDetalleComponent implements OnInit {
 
   ngOnInit(): void {
     // this.pdfSrc = this.pdfService.getPDF()
-    this.onFileSelected()
+    // this.onFileSelected()
   }
   openLg(content:any){
     this.modalService.open(content,{size:'xl'})
