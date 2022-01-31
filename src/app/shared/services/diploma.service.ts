@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from '@angular/common/http'
 import { Diploma } from "../models/diploma.model";
+import { Observable } from "rxjs";
 
 @Injectable({providedIn:'root'})
 
@@ -30,6 +32,7 @@ export class DiplomaService {
       folio:3
     },
   ]
+  constructor( private httpClient: HttpClient){}
   getDiplomas():any{
     return this.mockDiploma
   }
@@ -37,17 +40,20 @@ export class DiplomaService {
     return this.mockDiploma.push(datos)
   }
   
-  saveDiplomaWithFiles(faculty: any, file: File | null, file2:File|null ) {
+  saveDiplomaWithFiles(diploma: any, file: File | null, file2:File|null  ) {
     const formData = new FormData();
-    formData.append('name', faculty.name)
-    formData.append('code', faculty.code)
-    formData.append('universityUuid', faculty.university.uuid);
-    formData.append('file', file as any);
-    formData.append('file2', file as any);
-    console.log(file)
-    // const actionApi = `http://localhost:9090/faculties/with-files`;
-    // return this.httpClient.post<any>(actionApi, formData);
-
-
+    formData.append('numTitulo', diploma.numero)
+    // formData.append('dateRegister', diploma.fecha)
+    formData.append('attachment', file as any);
+    formData.append('antecedente', file2 as any);
+    formData.append('observation', diploma.observaciones);
+    formData.append('tipoUuid', '83a27c0f-c324-48c0-ad17-6f1ddc93aee0');
+    
+    console.log(file + "hasta aqui llegamos wero"+diploma.numero)
+    const actionApi = `http://localhost:8080/titulo/with-files`;
+    return this.httpClient.post<any>(actionApi, formData)
+    // .subscribe((data) =>{
+    //   console.log(data);
+    // })
   }
 }
