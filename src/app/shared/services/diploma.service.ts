@@ -42,14 +42,23 @@ export class DiplomaService {
   
   saveDiplomaWithFiles(diploma: any, file: File | null, file2:File|null  ) {
     const formData = new FormData();
+    console.log(diploma);
     formData.append('numTitulo', diploma.numero)
-    // formData.append('dateRegister', diploma.fecha)
+    formData.append('dateRegister', diploma.fecha)
+    formData.append('numFolio', diploma.folio)
+    formData.append('dateFolio', diploma.Ffolio)
     formData.append('attachment', file as any);
     formData.append('antecedente', file2 as any);
     formData.append('observation', diploma.observaciones);
+    formData.append('ci', diploma.ci);
+    // formData.append('', diploma.expiraCi);
+    formData.append('passport', diploma.pasaporte);
+    formData.append('lastname', diploma.apellidos);
+    formData.append('name', diploma.nombre);
+    formData.append('gender', diploma.sexo);
+    formData.append('nationality', diploma.nacionalidad);
     formData.append('tipoUuid', '83a27c0f-c324-48c0-ad17-6f1ddc93aee0');
     
-    console.log(file + "hasta aqui llegamos wero"+diploma.numero)
     const actionApi = `http://localhost:8080/titulo/with-files`;
     return this.httpClient.post<any>(actionApi, formData)
     // .subscribe((data) =>{

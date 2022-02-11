@@ -41,7 +41,7 @@ export class ModalRegistroComponent implements OnInit {
 
 
   openLg(content : any) {
-    this.modal = this.modalService.open(content, { size: 'lg' });
+    this.modal = this.modalService.open(content, { size: 'xl' });
   }
   closeLg(){
     this.diplomaForm.reset()
