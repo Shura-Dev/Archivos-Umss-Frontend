@@ -9,6 +9,7 @@ import { ModalDetalleComponent } from './diplomas-bachiller/lista-diplomas/modal
 import { ModalRegistroComponent } from './diplomas-bachiller/lista-diplomas/modal-registro/modal-registro.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer'
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListarTomosComponent } from './diplomas-bachiller/listar-tomos/listar-tomos.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ListaDiplomasComponent,
     DiplomasBachillerComponent,
     ModalDetalleComponent,
-    ModalRegistroComponent
+    ModalRegistroComponent,
+    ListarTomosComponent
   ],
   imports: [
     CommonModule,

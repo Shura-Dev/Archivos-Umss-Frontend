@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DiplomasTitulosComponent } from './diplomas-titulos.component';
 import { ListaDiplomasComponent } from './diplomas-bachiller/lista-diplomas/lista-diplomas.component';
 import { DiplomasBachillerComponent } from './diplomas-bachiller/diplomas-bachiller.component';
+import { ListarTomosComponent } from './diplomas-bachiller/listar-tomos/listar-tomos.component';
 
 const routes: Routes = [
   {
@@ -13,8 +14,13 @@ const routes: Routes = [
         path: 'overview',
         component: DiplomasBachillerComponent,
       },
-      { path: '', redirectTo: 'overview', pathMatch: 'full' },
-      { path: '**', redirectTo: 'overview', pathMatch: 'full' },
+      {
+        path: 'tomo',
+        component: ListarTomosComponent,
+      },
+      { path: '', redirectTo: 'tomo', pathMatch: 'full' },
+      { path: '**', redirectTo: 'tomo', pathMatch: 'full' },
+
     ],
   },
 ];
