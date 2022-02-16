@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal }  from '@ng-bootstrap/ng-bootstrap'
-import { PdfViewerComponent } from 'ng2-pdf-viewer'
-import { PdfService } from 'src/app/shared/services/pdf.service';
+import { PdfService } from 'src/app/modules/diplomas-titulos/diplomas-bachiller/lista-diplomas/services/pdf.service';
+
+
 
 @Component({
-  selector: 'app-modal-detalle',
-  templateUrl: './modal-detalle.component.html',
-  styleUrls: ['./modal-detalle.component.scss'],
+  selector: 'app-modal-editar',
+  templateUrl: './modal-editar.component.html',
+  styleUrls: ['./modal-editar.component.scss'],
   providers:[PdfService]
 })
-export class ModalDetalleComponent implements OnInit {
+export class ModalEditarComponent implements OnInit {
   page:any = 1;
   pdfSrc:string = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
   constructor( private modalService:NgbModal, private pdfService:PdfService ) { }
 
   ngOnInit(): void {
     // this.pdfSrc = this.pdfService.getPDF()
-    this.onFileSelected()
+    // this.onFileSelected()
   }
   openLg(content:any){
     this.modalService.open(content,{size:'xl'})
@@ -35,5 +36,4 @@ export class ModalDetalleComponent implements OnInit {
       reader.readAsArrayBuffer(img.files[0]);
     }
   }
-
 }

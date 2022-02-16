@@ -47,7 +47,8 @@ export class DiplomaService {
     console.log(file)
     // const actionApi = `http://localhost:9090/faculties/with-files`;
     // return this.httpClient.post<any>(actionApi, formData);
-
-
+  }
+  deleteDiploma(){
+    
   }
 }

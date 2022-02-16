@@ -148,7 +148,7 @@
       </h3>
       <div >
         <label> Pdf src </label>
-        <input (change)="onFileSelected()" [value]='pdfSrc' type="file" id="file">
+        <!-- <input (change)="onFileSelected()" [value]='pdfSrc' type="file" id="file"> -->
         <!-- <input [(ngModel)]="page" type="number" id="page"> -->
       </div>
       <pdf-viewer [src]="'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf'"
@@ -180,7 +180,7 @@
   (click)="openLg(content)"
 >
   <span
-    [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
+    [inlineSVG]="'./assets/media/icons/duotune/general/gen005.svg'"
     class="svg-icon svg-icon-3"
   ></span>
 </button>
