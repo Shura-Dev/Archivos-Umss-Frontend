@@ -27,6 +27,11 @@ const Routing: Routes = [
       import('../modules/diplomas-titulos/diplomas-titulos.module').then((m) => m.DiplomasTitulosModule),
   },
   {
+    path: 'servicios',
+    loadChildren: () =>
+      import('../modules/servicios/servicios.module').then((m) => m.ServiciosModule),
+  },
+  {
     path: 'crafted/pages/wizards',
     loadChildren: () =>
       import('../modules/wizards/wizards.module').then((m) => m.WizardsModule),

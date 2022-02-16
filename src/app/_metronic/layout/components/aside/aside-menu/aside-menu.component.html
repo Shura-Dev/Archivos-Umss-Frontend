@@ -4,14 +4,14 @@
     class="menu-link without-sub"
     routerLink="/dashboard"
     routerLinkActive="active"
-    ><span class="menu-icon">
+  ><span class="menu-icon">
       <span
         [inlineSVG]="'./assets/media/icons/duotune/art/art002.svg'"
         class="svg-icon svg-icon-2"
       ></span>
     </span>
     <span class="menu-title" translate="MENU.DASHBOARD"></span
-  ></a>
+    ></a>
 </div>
 
 <!-- Layout builder -->
@@ -20,19 +20,19 @@
     class="menu-link without-sub"
     routerLink="/builder"
     routerLinkActive="active"
-    ><span class="menu-icon">
+  ><span class="menu-icon">
       <span
         [inlineSVG]="'./assets/media/icons/duotune/general/gen019.svg'"
         class="svg-icon svg-icon-2"
       ></span> </span
-    ><span class="menu-title">Layout Builder</span></a
+  ><span class="menu-title">Layout Builder</span></a
   >
 </div>
 <!-- Separator -->
 <div class="menu-item">
   <div class="menu-content pt-8 pb-2">
     <span class="menu-section text-muted text-uppercase fs-8 ls-1"
-      >Area de Registro</span
+    >Area de Registro</span
     >
   </div>
 </div>
@@ -42,50 +42,53 @@
 <div
   class="menu-item menu-accordion"
   data-kt-menu-trigger="click"
-  routerLinkActive="here show"
->
-  <span class="menu-link"
-    ><span class="menu-icon"
-      ><span
-        class="svg-icon svg-icon-2"
-        [inlineSVG]="'./assets/media/icons/duotune/general/gen022.svg'"
-      ></span></span
-    ><span class="menu-title">Diplomas y Titulos</span><span class="menu-arrow"></span
-  ></span>
+  routerLinkActive="here show">
+
+  <span class="menu-link">
+    <span class="menu-icon">
+      <span
+    class="svg-icon svg-icon-2"
+    [inlineSVG]="'./assets/media/icons/duotune/general/gen022.svg'">
+      </span>
+    </span>
+
+    <span class="menu-title">Diplomas y Titulos</span>
+    <span class="menu-arrow"></span>
+  </span>
   <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
     <div
       class="menu-item menu-accordion"
       routerLinkActive="here show"
       data-kt-menu-trigger="click"
     >
-      <span class="menu-link"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title" data-link="/crafted/diplomas"
-          >Listar Tomos</span
-        ><span class="menu-arrow"></span
-      ></span>
+      <span class="menu-link">
+        <span class="menu-bullet"><span class="bullet bullet-dot"></span>
+      </span>
+        <span class="menu-title" data-link="/crafted/diplomas">Listar Tomos</span>
+        <span class="menu-arrow"></span>
+      </span>
       <div
         class="menu-sub menu-sub-accordion"
         routerLinkActive="menu-active-bg"
       >
-      <div class="menu-item">
-        <a
-          class="menu-link without-sub"
-          routerLinkActive="active"
-          routerLink="/crafted/diplomas/overview"
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/diplomas/overview"
           ><span class="menu-bullet"
-            ><span class="bullet bullet-dot"></span></span
+          ><span class="bullet bullet-dot"></span></span
           ><span class="menu-title">Diplomas de Bachiller</span></a
-        >
-      </div>
+          >
+        </div>
         <div class="menu-item">
           <a
             class="menu-link without-sub"
             routerLinkActive="active"
             routerLink="/crafted/pages/profile/certificado-academico"
-            ><span class="menu-bullet"
-              ><span class="bullet bullet-dot"></span></span
-            ><span class="menu-title">Certificado Academico</span></a
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Certificado Academico</span></a
           >
         </div>
         <div class="menu-item">
@@ -93,9 +96,9 @@
             class="menu-link without-sub"
             routerLinkActive="active"
             routerLink="/crafted/pages/profile/titulo-profesional"
-            ><span class="menu-bullet"
-              ><span class="bullet bullet-dot"></span></span
-            ><span class="menu-title">Titulo Profesional</span></a
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Titulo Profesional</span></a
           >
         </div>
         <div class="menu-item">
@@ -103,9 +106,9 @@
             class="menu-link without-sub"
             routerLinkActive="active"
             routerLink="/crafted/pages/profile/diplomado"
-            ><span class="menu-bullet"
-              ><span class="bullet bullet-dot"></span></span
-            ><span class="menu-title">Diplomado</span></a
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Diplomado</span></a
           >
         </div>
         <div class="menu-item">
@@ -113,9 +116,9 @@
             class="menu-link without-sub"
             routerLinkActive="active"
             routerLink="/crafted/pages/profile/titulo-posgrado"
-            ><span class="menu-bullet"
-              ><span class="bullet bullet-dot"></span></span
-            ><span class="menu-title">Titulos de Posgrado</span></a
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Titulos de Posgrado</span></a
           >
         </div>
         <div class="menu-item">
@@ -123,9 +126,9 @@
             class="menu-link without-sub"
             routerLinkActive="active"
             routerLink="/crafted/pages/profile/revalida"
-            ><span class="menu-bullet"
-              ><span class="bullet bullet-dot"></span></span
-            ><span class="menu-title">Revalida</span></a
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Revalida</span></a
           >
         </div>
         <div class="menu-item">
@@ -133,9 +136,9 @@
             class="menu-link without-sub"
             routerLinkActive="active"
             routerLink="/crafted/pages/profile/certificado-supletorio"
-            ><span class="menu-bullet"
-              ><span class="bullet bullet-dot"></span></span
-            ><span class="menu-title">Certificado Supletorio</span></a
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Certificado Supletorio</span></a
           >
         </div>
       </div>
@@ -160,9 +163,9 @@
             class="menu-link without-sub"
             routerLinkActive="active"
             routerLink="/crafted/diplomas/listar"
-            ><span class="menu-bullet"
-              ><span class="bullet bullet-dot"></span></span
-            ><span class="menu-title">Horizontal</span></a
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Horizontal</span></a
           >
         </div>
         <div class="menu-item">
@@ -170,9 +173,9 @@
             class="menu-link without-sub"
             routerLinkActive="active"
             routerLink="/crafted/pages/wizards/vertical"
-            ><span class="menu-bullet"
-              ><span class="bullet bullet-dot"></span></span
-            ><span class="menu-title">Vertical</span></a
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Vertical</span></a
           >
         </div>
       </div>
@@ -183,10 +186,10 @@
       data-kt-menu-trigger="click"
     >
       <span class="menu-link"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title" data-link="/crafted/pages/shura"
-          >Buscar Titulo</span
-        ><span class="menu-arrow"></span
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title" data-link="/crafted/pages/shura"
+      >Buscar Titulo</span
+      ><span class="menu-arrow"></span
       ></span>
       <div
         class="menu-sub menu-sub-accordion"
@@ -197,9 +200,9 @@
             class="menu-link without-sub"
             routerLinkActive="active"
             routerLink="/crafted/pages/shura/tomos"
-            ><span class="menu-bullet"
-              ><span class="bullet bullet-dot"></span></span
-            ><span class="menu-title">prueba component</span></a
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">prueba component</span></a
           >
         </div>
         <!-- <div class="menu-item">
@@ -220,10 +223,10 @@
       data-kt-menu-trigger="click"
     >
       <span class="menu-link"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title" data-link="/crafted/diplomas"
-          >Importar Titulos</span
-        ><span class="menu-arrow"></span
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title" data-link="/crafted/diplomas"
+      >Importar Titulos</span
+      ><span class="menu-arrow"></span
       ></span>
       <div
         class="menu-sub menu-sub-accordion"
@@ -234,9 +237,9 @@
             class="menu-link without-sub"
             routerLinkActive="active"
             routerLink="/crafted/diplomas/listar"
-            ><span class="menu-bullet"
-              ><span class="bullet bullet-dot"></span></span
-            ><span class="menu-title">Horizontal</span></a
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Horizontal</span></a
           >
         </div>
         <div class="menu-item">
@@ -244,9 +247,9 @@
             class="menu-link without-sub"
             routerLinkActive="active"
             routerLink="/crafted/pages/wizards/vertical"
-            ><span class="menu-bullet"
-              ><span class="bullet bullet-dot"></span></span
-            ><span class="menu-title">Vertical</span></a
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Vertical</span></a
           >
         </div>
       </div>
@@ -257,10 +260,10 @@
       data-kt-menu-trigger="click"
     >
       <span class="menu-link"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title" data-link="/crafted/diplomas"
-          >Reportes</span
-        ><span class="menu-arrow"></span
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title" data-link="/crafted/diplomas"
+      >Reportes</span
+      ><span class="menu-arrow"></span
       ></span>
       <div
         class="menu-sub menu-sub-accordion"
@@ -271,9 +274,9 @@
             class="menu-link without-sub"
             routerLinkActive="active"
             routerLink="/crafted/diplomas/listar"
-            ><span class="menu-bullet"
-              ><span class="bullet bullet-dot"></span></span
-            ><span class="menu-title">Horizontal</span></a
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Horizontal</span></a
           >
         </div>
         <div class="menu-item">
@@ -281,9 +284,255 @@
             class="menu-link without-sub"
             routerLinkActive="active"
             routerLink="/crafted/pages/wizards/vertical"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Vertical</span></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--  Servicios -->
+  <span class="menu-link">
+    <span class="menu-icon">
+      <span
+        class="svg-icon svg-icon-2"
+        [inlineSVG]="'./assets/media/icons/duotune/general/gen022.svg'">
+      </span>
+    </span>
+    <span class="menu-title">Servicios</span>
+    <span class="menu-arrow"></span>
+  </span>
+
+  <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+    <div class="menu-item menu-accordion" routerLinkActive="here show" data-kt-menu-trigger="click">
+      <span class="menu-link">
+        <span class="menu-bullet"><span class="bullet bullet-dot"></span>
+      </span>
+        <span class="menu-title" data-link="/crafted/diplomas">Listar Tomos</span>
+        <span class="menu-arrow"></span>
+      </span>
+      <div
+        class="menu-sub menu-sub-accordion"
+        routerLinkActive="menu-active-bg"
+      >
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/diplomas/overview"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Diplomas de Bachiller</span></a
+          >
+        </div>
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/pages/profile/certificado-academico"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Certificado Academico</span></a
+          >
+        </div>
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/pages/profile/titulo-profesional"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Titulo Profesional</span></a
+          >
+        </div>
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/pages/profile/diplomado"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Diplomado</span></a
+          >
+        </div>
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/pages/profile/titulo-posgrado"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Titulos de Posgrado</span></a
+          >
+        </div>
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/pages/profile/revalida"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Revalida</span></a
+          >
+        </div>
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/pages/profile/certificado-supletorio"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Certificado Supletorio</span></a
+          >
+        </div>
+      </div>
+    </div>
+    <div
+      class="menu-item menu-accordion"
+      routerLinkActive="here show"
+      data-kt-menu-trigger="click"
+    >
+      <!-- <span class="menu-link"
+        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+        ><span class="menu-title" data-link="/crafted/diplomas"
+          >Buscar Titulo</span
+        ><span class="menu-arrow"></span
+      ></span> -->
+      <div
+        class="menu-sub menu-sub-accordion"
+        routerLinkActive="menu-active-bg"
+      >
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/diplomas/listar"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Horizontal</span></a
+          >
+        </div>
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/pages/wizards/vertical"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Vertical</span></a
+          >
+        </div>
+      </div>
+    </div>
+    <div
+      class="menu-item menu-accordion"
+      routerLinkActive="here show"
+      data-kt-menu-trigger="click"
+    >
+      <span class="menu-link"
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title" data-link="/crafted/pages/shura"
+      >Buscar Titulo</span
+      ><span class="menu-arrow"></span
+      ></span>
+      <div
+        class="menu-sub menu-sub-accordion"
+        routerLinkActive="menu-active-bg"
+      >
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/pages/shura/tomos"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">prueba component</span></a
+          >
+        </div>
+        <!-- <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/pages/wizards/vertical"
             ><span class="menu-bullet"
               ><span class="bullet bullet-dot"></span></span
             ><span class="menu-title">Vertical</span></a
+          >
+        </div> -->
+      </div>
+    </div>
+    <div
+      class="menu-item menu-accordion"
+      routerLinkActive="here show"
+      data-kt-menu-trigger="click"
+    >
+      <span class="menu-link"
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title" data-link="/crafted/diplomas"
+      >Importar Titulos</span
+      ><span class="menu-arrow"></span
+      ></span>
+      <div
+        class="menu-sub menu-sub-accordion"
+        routerLinkActive="menu-active-bg"
+      >
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/diplomas/listar"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Horizontal</span></a
+          >
+        </div>
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/pages/wizards/vertical"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Vertical</span></a
+          >
+        </div>
+      </div>
+    </div>
+    <div
+      class="menu-item menu-accordion"
+      routerLinkActive="here show"
+      data-kt-menu-trigger="click"
+    >
+      <span class="menu-link"
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title" data-link="/crafted/diplomas"
+      >Reportes</span
+      ><span class="menu-arrow"></span
+      ></span>
+      <div
+        class="menu-sub menu-sub-accordion"
+        routerLinkActive="menu-active-bg"
+      >
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/diplomas/listar"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Horizontal</span></a
+          >
+        </div>
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/pages/wizards/vertical"
+          ><span class="menu-bullet"
+          ><span class="bullet bullet-dot"></span></span
+          ><span class="menu-title">Vertical</span></a
           >
         </div>
       </div>
@@ -329,19 +578,19 @@
 </div> -->
 
 <!-- Errors -->
-  <div
+<div
   class="menu-item menu-accordion"
   data-kt-menu-trigger="click"
   routerLinkActive="here show"
 >
   <span class="menu-link"
-    ><span class="menu-icon"
-      ><span
-        class="svg-icon svg-icon-2"
-        [inlineSVG]="'./assets/media/icons/duotune/general/gen040.svg'"
-      ></span></span
-    ><span class="menu-title" data-link="/error">Errors</span
-    ><span class="menu-arrow"></span
+  ><span class="menu-icon"
+  ><span
+    class="svg-icon svg-icon-2"
+    [inlineSVG]="'./assets/media/icons/duotune/general/gen040.svg'"
+  ></span></span
+  ><span class="menu-title" data-link="/error">Errors</span
+  ><span class="menu-arrow"></span
   ></span>
   <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
     <div class="menu-item">
@@ -349,8 +598,8 @@
         class="menu-link without-sub"
         routerLink="/error/404"
         routerLinkActive="active"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title">Error 404</span></a
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title">Error 404</span></a
       >
     </div>
     <div class="menu-item">
@@ -358,8 +607,8 @@
         class="menu-link without-sub"
         routerLink="/error/500"
         routerLinkActive="active"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title">Error 500</span></a
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title">Error 500</span></a
       >
     </div>
   </div>
@@ -372,13 +621,13 @@
   routerLinkActive="here show"
 >
   <span class="menu-link"
-    ><span class="menu-icon"
-      ><span
-        class="svg-icon svg-icon-2"
-        [inlineSVG]="'./assets/media/icons/duotune/general/gen025.svg'"
-      ></span></span
-    ><span class="menu-title" data-link="/crafted/widgets">Widgets</span
-    ><span class="menu-arrow"></span
+  ><span class="menu-icon"
+  ><span
+    class="svg-icon svg-icon-2"
+    [inlineSVG]="'./assets/media/icons/duotune/general/gen025.svg'"
+  ></span></span
+  ><span class="menu-title" data-link="/crafted/widgets">Widgets</span
+  ><span class="menu-arrow"></span
   ></span>
   <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
     <div class="menu-item">
@@ -386,8 +635,8 @@
         class="menu-link without-sub"
         routerLinkActive="active"
         routerLink="/crafted/widgets/lists"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title">Lists</span></a
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title">Lists</span></a
       >
     </div>
     <div class="menu-item">
@@ -395,8 +644,8 @@
         class="menu-link without-sub"
         routerLinkActive="active"
         routerLink="/crafted/widgets/statistics"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title">Statistics</span></a
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title">Statistics</span></a
       >
     </div>
     <div class="menu-item">
@@ -404,8 +653,8 @@
         class="menu-link without-sub"
         routerLinkActive="active"
         routerLink="/crafted/widgets/charts"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title">Charts</span></a
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title">Charts</span></a
       >
     </div>
     <div class="menu-item">
@@ -413,8 +662,8 @@
         class="menu-link without-sub"
         routerLinkActive="active"
         routerLink="/crafted/widgets/mixed"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title">Mixed</span></a
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title">Mixed</span></a
       >
     </div>
     <div class="menu-item">
@@ -422,8 +671,8 @@
         class="menu-link without-sub"
         routerLinkActive="active"
         routerLink="/crafted/widgets/tables"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title">Tables</span></a
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title">Tables</span></a
       >
     </div>
     <div class="menu-item">
@@ -431,8 +680,8 @@
         class="menu-link without-sub"
         routerLinkActive="active"
         routerLink="/crafted/widgets/feeds"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title">Feeds</span></a
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title">Feeds</span></a
       >
     </div>
   </div>
@@ -452,13 +701,13 @@
   routerLinkActive="here show"
 >
   <span class="menu-link"
-    ><span class="menu-icon"
-      ><span
-        class="svg-icon svg-icon-2"
-        [inlineSVG]="'./assets/media/icons/duotune/communication/com012.svg'"
-      ></span></span
-    ><span class="menu-title" data-link="/apps/chat">Chat</span
-    ><span class="menu-arrow"></span
+  ><span class="menu-icon"
+  ><span
+    class="svg-icon svg-icon-2"
+    [inlineSVG]="'./assets/media/icons/duotune/communication/com012.svg'"
+  ></span></span
+  ><span class="menu-title" data-link="/apps/chat">Chat</span
+  ><span class="menu-arrow"></span
   ></span>
   <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
     <div class="menu-item">
@@ -466,8 +715,8 @@
         class="menu-link without-sub"
         routerLinkActive="active"
         routerLink="/apps/chat/private-chat"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title">Private Chat</span></a
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title">Private Chat</span></a
       >
     </div>
     <div class="menu-item">
@@ -475,8 +724,8 @@
         class="menu-link without-sub"
         routerLinkActive="active"
         routerLink="/apps/chat/group-chat"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title">Group Chart</span></a
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title">Group Chart</span></a
       >
     </div>
     <div class="menu-item">
@@ -484,8 +733,8 @@
         class="menu-link without-sub"
         routerLinkActive="active"
         routerLink="/apps/chat/drawer-chat"
-        ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
-        ><span class="menu-title">Drawer Chart</span></a
+      ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
+      ><span class="menu-title">Drawer Chart</span></a
       >
     </div>
   </div>
