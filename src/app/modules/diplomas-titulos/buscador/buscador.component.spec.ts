@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RevalidaComponent } from './revalida.component';
+import { BuscadorComponent } from './buscador.component';
 
-describe('RevalidaComponent', () => {
-  let component: RevalidaComponent;
-  let fixture: ComponentFixture<RevalidaComponent>;
+describe('BuscadorComponent', () => {
+  let component: BuscadorComponent;
+  let fixture: ComponentFixture<BuscadorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RevalidaComponent ]
+      declarations: [ BuscadorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RevalidaComponent);
+    fixture = TestBed.createComponent(BuscadorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

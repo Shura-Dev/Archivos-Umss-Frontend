@@ -127,18 +127,20 @@
           <td> -->
           </td>
           <td class="text-end">
-            <a
+            <app-modal-observaciones></app-modal-observaciones>
+            <!-- <a
               href="#"
               class="
-                btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                btn btn-icon btn-bg-light btn-color-primary btn-sm
                 me-1
               "
             >
               <span
-                [inlineSVG]="'./assets/media/icons/duotune/general/gen019.svg'"
+                [inlineSVG]="'./assets/media/icons/duotune/general/gen005.svg'"
                 class="svg-icon svg-icon-3"
               ></span>
-            </a>
+            </a> -->
+            <app-modal-editar></app-modal-editar>
             <app-modal-detalle></app-modal-detalle>
             <!-- <a
               href="#"
@@ -152,15 +154,16 @@
                 class="svg-icon svg-icon-3"
               ></span>
             </a> -->
-            <a
+            <span
               href="#"
               class="btn btn-icon btn-bg-light btn-color-danger btn-sm"
+              (click)="delete(diploma)"
             >
               <span
                 [inlineSVG]="'./assets/media/icons/duotune/general/gen027.svg'"
                 class="svg-icon svg-icon-3"
               ></span>
-            </a>
+            </span>
           </td>
         </tr>
         <!-- <tr>

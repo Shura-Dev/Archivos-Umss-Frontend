@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DiplomaService } from 'src/app/shared/services/diploma.service';
+import { DiplomaService } from 'src/app/modules/diplomas-titulos/diplomas-bachiller/lista-diplomas/services/diploma.service';
 
 @Component({
   selector: 'app-lista-diplomas',
@@ -14,5 +14,7 @@ export class ListaDiplomasComponent implements OnInit {
     const ts = this.diplomaService.getDiplomas()
     this.diplomas = ts
   }
-
+delete(diploma:DiplomaService ){
+  this.diplomaService
+}
 }

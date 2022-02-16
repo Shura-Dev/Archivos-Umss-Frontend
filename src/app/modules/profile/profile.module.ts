@@ -13,13 +13,6 @@ import {
   DropdownMenusModule,
   WidgetsModule,
 } from '../../_metronic/partials';
-import { TomosComponent } from './tomos/tomos.component';
-import { CertificadoacademicoComponent } from './certificadoacademico/certificadoacademico.component';
-import { TituloprofesionalComponent } from './tituloprofesional/tituloprofesional.component';
-import { DiplomadoComponent } from './diplomado/diplomado.component';
-import { TituloposgradoComponent } from './tituloposgrado/tituloposgrado.component';
-import { RevalidaComponent } from './revalida/revalida.component';
-import { CertificadosupletorioComponent } from './certificadosupletorio/certificadosupletorio.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PdfViewerModule} from 'ng2-pdf-viewer'
 
@@ -31,14 +24,7 @@ import { PdfViewerModule} from 'ng2-pdf-viewer'
     ProjectsComponent,
     CampaignsComponent,
     DocumentsComponent,
-    ConnectionsComponent,
-    TomosComponent,
-    CertificadoacademicoComponent,
-    TituloprofesionalComponent,
-    DiplomadoComponent,
-    TituloposgradoComponent,
-    RevalidaComponent,
-    CertificadosupletorioComponent,
+    ConnectionsComponent
   ],
   imports: [
     CommonModule,

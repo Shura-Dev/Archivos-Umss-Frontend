@@ -42,6 +42,7 @@ export class DiplomaService {
   
   saveDiplomaWithFiles(diploma: any, file: File | null, file2:File|null  ) {
     const formData = new FormData();
+
     console.log(diploma);
     formData.append('numTitulo', diploma.numero)
     formData.append('dateRegister', diploma.fecha)
@@ -65,4 +66,6 @@ export class DiplomaService {
     //   console.log(data);
     // })
   }
+  deleteDiploma(){
+  } 
 }

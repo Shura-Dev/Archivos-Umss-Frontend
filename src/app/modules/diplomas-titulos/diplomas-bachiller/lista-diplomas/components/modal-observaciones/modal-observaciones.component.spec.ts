@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TomosComponent } from './tomos.component';
+import { ModalObservacionesComponent } from './modal-observaciones.component';
 
-describe('TomosComponent', () => {
-  let component: TomosComponent;
-  let fixture: ComponentFixture<TomosComponent>;
+describe('ModalObservacionesComponent', () => {
+  let component: ModalObservacionesComponent;
+  let fixture: ComponentFixture<ModalObservacionesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TomosComponent ]
+      declarations: [ ModalObservacionesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TomosComponent);
+    fixture = TestBed.createComponent(ModalObservacionesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
