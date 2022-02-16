@@ -76,7 +76,7 @@ export class ModalRegistroComponent implements OnInit {
   addDiplomaWithFiles() {
     console.log('add faculty', this.diplomaForm.getRawValue(), this.diplomaForm.valid);
 
-    if (this.diplomaForm.valid) {
+    // if (this.diplomaForm.valid) {
       const formValue = this.diplomaForm.getRawValue();
       const newDiploma: any= {
         ...formValue,
@@ -84,10 +84,10 @@ export class ModalRegistroComponent implements OnInit {
       }
 
       this.diplomaService.saveDiplomaWithFiles(newDiploma, this.selectedFile, this.selectedFile2)
-        // .subscribe((facultyCreated: any) => {
-        //   this.diplomaForm.reset();
-        // });
+        .subscribe((facultyCreated: any) => {
+          this.closeLg()
+        });
     }
   }
 
-}
+// }
