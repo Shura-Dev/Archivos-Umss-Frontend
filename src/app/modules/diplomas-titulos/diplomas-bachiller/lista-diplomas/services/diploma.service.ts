@@ -44,12 +44,12 @@ export class DiplomaService {
     const formData = new FormData();
 
     console.log(diploma);
-    formData.append('numTitulo', diploma.numero)
-    formData.append('dateRegister', diploma.fecha)
-    formData.append('numFolio', diploma.folio)
-    formData.append('dateFolio', diploma.Ffolio)
+    formData.append('degree_num', diploma.numero)
+    formData.append('date_initial', diploma.fecha)
+    formData.append('folio_num', diploma.folio)
+    formData.append('folio_date', diploma.Ffolio)
     formData.append('attachment', file as any);
-    formData.append('antecedente', file2 as any);
+    formData.append('studentRecord', file2 as any);
     formData.append('observation', diploma.observaciones);
     formData.append('ci', diploma.ci);
     // formData.append('', diploma.expiraCi);
@@ -58,9 +58,9 @@ export class DiplomaService {
     formData.append('name', diploma.nombre);
     formData.append('gender', diploma.sexo);
     formData.append('nationality', diploma.nacionalidad);
-    formData.append('tipoUuid', '83a27c0f-c324-48c0-ad17-6f1ddc93aee0');
+    formData.append('typeUuid', '83a27c0f-c324-48c0-ad17-6f1ddc93aee0');
     
-    const actionApi = `http://localhost:8080/titulo/with-files`;
+    const actionApi = `http://localhost:8081/v1/config/degree/unclassified`;
     return this.httpClient.post<any>(actionApi, formData)
     // .subscribe((data) =>{
     //   console.log(data);
