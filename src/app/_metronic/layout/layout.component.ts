@@ -20,7 +20,7 @@ export class LayoutComponent implements OnInit, AfterViewInit {
   asideMenuStatic: true;
   contentClasses = '';
   contentContainerClasses = '';
-  toolbarDisplay = true;
+  toolbarDisplay = false;
   contentExtended: false;
   asideCSSClasses: string;
   asideHTMLAttributes: any = {};

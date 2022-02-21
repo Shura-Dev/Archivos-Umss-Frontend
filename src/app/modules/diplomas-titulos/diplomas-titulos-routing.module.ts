@@ -12,7 +12,7 @@ const routes: Routes = [
     component: DiplomasTitulosComponent,
     children: [
       {
-        path: 'overview',
+        path: 'overview/:uuid',
         component: DiplomasBachillerComponent,
       },
       {

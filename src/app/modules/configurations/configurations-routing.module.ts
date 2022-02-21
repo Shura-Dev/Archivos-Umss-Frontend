@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ConfigDTComponent } from './config-dt/config-dt.component';
+import { CreateCountriesComponent } from './config-dt/create-countries/create-countries.component';
+import { CrudDTComponent } from './config-dt/crud-dt/crud-dt.component';
 import { ConfigurationsComponent } from './configurations.component';
 
 const routes: Routes = [
@@ -9,16 +12,16 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: ConfigurationsComponent,
+        component: ConfigDTComponent,
       },
-      // {
-      //   path: 'list',
-      //   component: ListaComponent,
-      // },
-      // {
-      //   path: 'settings',
-      //   component: SettingsComponent,
-      // },
+      {
+        path: 'crud/:uuid',
+        component: CrudDTComponent,
+      },
+      {
+        path: 'countries',
+        component: CreateCountriesComponent,
+      },
       { path: '', redirectTo: 'configuraciones', pathMatch: 'full' },
       { path: '**', redirectTo: 'configuraciones', pathMatch: 'full' },
     ],
