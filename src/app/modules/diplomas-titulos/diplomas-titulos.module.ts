@@ -22,7 +22,7 @@ import { ModalEditarComponent } from './diplomas-bachiller/lista-diplomas/compon
     ModalRegistroComponent,
     ModalObservacionesComponent,
     BuscadorComponent,
-    ModalEditarComponent
+    ModalEditarComponent,
   ],
   imports: [
     CommonModule,
