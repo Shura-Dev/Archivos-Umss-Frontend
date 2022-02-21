@@ -20,11 +20,11 @@
             [ngClass]="!bc.isSeparator && bc.isActive ? 'text-dark' : ''"
             [ngClass]="!bc.isSeparator && !bc.isActive ? 'text-muted' : ''"
           >
-            <!-- <ng-container *ngIf="!bc.isSeparator">
-              <a class="text-muted text-hover-primary" [routerLink]="bc.path">
+            <ng-container *ngIf="!bc.isSeparator">
+              <a class="text-muted text-hover-primary" [routerLink]="">
                 {{ bc.title }}
               </a>
-            </ng-container> -->
+            </ng-container>
             <ng-container *ngIf="bc.isSeparator">
               <span class="bullet bg-gray-200 w-5px h-2px"></span>
             </ng-container>
