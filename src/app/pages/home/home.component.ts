@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 
-let input = Input;
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
