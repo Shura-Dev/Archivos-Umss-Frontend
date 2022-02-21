@@ -2,9 +2,8 @@ import { Routes } from '@angular/router';
 
 const Routing: Routes = [
   {
-    path: 'dashboard',
-    loadChildren: () =>
-      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'builder',
@@ -45,7 +44,7 @@ const Routing: Routes = [
   },
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/home',
     pathMatch: 'full',
   },
   {
