@@ -1,9 +1,9 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title text-dark fw-bolder">Diplomas de Bachiller</h4>
+    <h4 class="modal-title text-center text-dark fw-bolder">FORMULARIO PARA  EDITAR TITULO DE BACHILLER</h4>
     <button
       type="button"
-      class="close"
+      class="close btn btn-sm btn-light"
       aria-label="Close"
       (click)="modal.dismiss('Cross click')"
     >
@@ -12,21 +12,19 @@
   </div>
   <div class="modal-body">
     <div class="row">
-      <h3 class="text-center fw-bolder text-primary text-muted">
-        Detalle del Titulo
-      </h3>
-      <div class="col-md-4">
-        <h3 class="fw-bolder text-center text-primary">DATOS DEL TITULO</h3>
+      <div class="col-md-6">
+        <h5 class="fw-bolder text-center text-primary">DATOS DEL TITULO</h5>
         <div class="card card-custom">
           <!--begin::Form-->
-          <form class="form">
+          <form class="form" [formGroup]="diplomaForm">
             <div class="card-body">
               <div class="form-group">
-                <label class="fw-bolder"> N.-Titulo</label>
+                <label class="fw-bolder "> N.-Titulo</label>
                 <input
                   type="number"
                   class="form-control form-control-solid"
-                  placeholder="Example input"
+                  placeholder="Numero de Titulo"
+                  formControlName="numero"
                 />
               </div>
               <div class="form-group">
@@ -36,16 +34,14 @@
                   type="date"
                   value="2011-08-19"
                   id="example-date-input"
+                  formControlName="fecha"
                 />
               </div>
               <div class="form-group">
                 <label class="fw-bolder">Seleccione Grado</label>
-                <select class="form-control custom-select form-control-solid">
-                  <option>BACHILLER</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select class="form-control custom-select form-control-solid" formControlName="grado">
+                  <option selected>BACHILLER</option>
+                  <option>ACADEMICO</option>
                 </select>
               </div>
               <div class="form-group row">
@@ -54,7 +50,8 @@
                   <input
                     type="number"
                     class="form-control form-control-solid"
-                    placeholder="Example input"
+                    placeholder="Numero de Folio"
+                    formControlName="folio"
                   />
                 </div>
                 <div class="col-md-6">
@@ -66,17 +63,56 @@
                     type="date"
                     value="2011-08-19"
                     id="example-date-input"
+                    formControlName="Ffolio"
                   />
                 </div>
+              </div>
+              <div class="form-group">
+                <label class="fw-bolder">Titulo en PDF</label>
+                <div></div>
+                <div class="form-control form-control-solid">
+                  <input
+                    type="file"
+                    class="custom-file-input"
+                    id="customFile"
+                    (change)="onFileSelected($event)"
+                    accept="application/pdf"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="fw-bolder">Antecedentes en PDF</label>
+                  <div></div>
+                  <div class="form-control form-control-solid">
+                    <input
+                    type="file"
+                    class="custom-file-input"
+                    id="customFile2"
+                    (change)="onFileSelected2($event)"
+                    accept="application/pdf"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleTextarea" class="text-dark fw-bolder"
+                  >Observaciones</label
+                >
+                <textarea
+                  class="form-control form-control-solid"
+                  rows="3"
+                  formControlName="observaciones"
+                ></textarea>
               </div>
             </div>
           </form>
           <!--end::Form-->
         </div>
-        <h3 class="fw-bolder text-center text-primary">DATOS PERSONALES</h3>
+      </div>
+      <div class="col-md-6">
+        <h5 class="fw-bolder text-center text-primary">DATOS PERSONALES</h5>
         <div class="card card-custom">
           <!--begin::Form-->
-          <form class="form">
+          <form class="form" [formGroup]="diplomaForm">
             <div class="card-body">
               <div class="form-group row">
                 <div class="col-md-6">
@@ -84,18 +120,20 @@
                   <input
                     type="number"
                     class="form-control form-control-solid"
-                    placeholder="Example input"
+                    placeholder="Numero de Carnet"
+                    formControlName="ci"
                   />
                 </div>
                 <div class="col-md-6">
                   <label for="example-date-input" class="fw-bolder text-danger"
-                    >Expira</label
+                    >Expedido en:</label
                   >
                   <input
                     class="form-control form-control-solid"
-                    type="date"
+                    type="text"
                     value="2011-08-19"
                     id="example-date-input"
+                    formControlName="expiraCi"
                   />
                 </div>
               </div>
@@ -105,6 +143,7 @@
                   type="number"
                   class="form-control form-control-solid"
                   placeholder="Numero de Pasaporte"
+                  formControlName="pasaporte"
                 />
               </div>
               <div class="form-group">
@@ -113,6 +152,7 @@
                   type="text"
                   class="form-control form-control-solid"
                   placeholder="Apellidos"
+                  formControlName="apellidos"
                 />
               </div>
               <div class="form-group">
@@ -121,20 +161,20 @@
                   type="text"
                   class="form-control form-control-solid"
                   placeholder="Nombres"
+                  formControlName="nombre"
                 />
               </div>
               <div class="form-group">
                 <label class="fw-bolder">Sexo</label>
-                <select class="form-control custom-select form-control-solid">
-                  <option>Masculino</option>
+                <select class="form-control custom-select form-control-solid" value="asdfas" formControlName="sexo">
+                  <option selected>Masculino</option>
                   <option>Femenino</option>
                 </select>
               </div>
               <div class="form-group">
                 <label class="fw-bolder">Nacionalidad</label>
-                <select class="form-control custom-select form-control-solid">
-                  <option>Bolivia</option>
-                  <option>Otros</option>
+                <select class="form-control custom-select form-control-solid" formControlName="nacionalidad">
+                  <option selected>Bolivia</option>
                 </select>
               </div>
             </div>
@@ -142,45 +182,29 @@
           <!--end::Form-->
         </div>
       </div>
-      <div class="col-md-8">
-      <h3 class="text-center fw-bolder text-primary text-muted">
-        Titulo
-      </h3>
-      <div >
-        <label> Pdf src </label>
-        <!-- <input (change)="onFileSelected()" [value]='pdfSrc' type="file" id="file"> -->
-        <!-- <input [(ngModel)]="page" type="number" id="page"> -->
-      </div>
-      <pdf-viewer [src]="'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf'"
-        [render-text]="true"
-        [page]="page"
-        class="shadow-lg p-3 mb-5 bg-white rounded"  
-        [show-all]="true"
-        style="display: block; background-color: blueviolet; width: 700px; height: 650px;">
-      </pdf-viewer>
-      </div>
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close('click')">
+    <button
+      type="button"
+      class="btn btn-light btn-sm"
+      (click)="closeLg()"
+    >
       Cerrar
     </button>
     <button
       type="button"
-      class="btn btn-primary"
-      (click)="modal.close('click')"
+      class="btn btn-primary btn-sm"
+      (click)="addDiplomaWithFiles()"
     >
-      Guardar
+      Guardar 
     </button>
   </div>
 </ng-template>
 
-<button
-  class="btn btn-icon btn-bg-light btn-color-primary btn-sm me-1"
-  (click)="openLg(content)"
->
+<button class="btn btn-icon btn-bg-light btn-color-primary btn-sm me-1" (click)="openLg(content)">
   <span
-    [inlineSVG]="'./assets/media/icons/duotune/general/gen005.svg'"
-    class="svg-icon svg-icon-3"
-  ></span>
+        [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
+        class="svg-icon svg-icon-3"
+      ></span>
 </button>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { DiplomaService } from 'src/app/modules/diplomas-titulos/diplomas-bachiller/lista-diplomas/services/diploma.service';
 import { environment } from '../../../../../../environments/environment';
 
 @Component({
@@ -10,7 +11,34 @@ export class AsideMenuComponent implements OnInit {
   appAngularVersion: string = environment.appVersion;
   appPreviewChangelogUrl: string = environment.appPreviewChangelogUrl;
 
-  constructor() {}
+  @Input() title: string;
+  @Input() subTitle: string;
+  @Input() actionLink: {
+    label: string,
+    route: string[]
+  }
+  @Input() organizations: [];
+  @Input() leftLink: {
+    label: string,
+    route: string
+  };
+  @Input() rightLink: {
+    label: string,
+    route: string
+  };
 
-  ngOnInit(): void {}
+  rutas:any
+  
+  constructor(private diplomaService: DiplomaService, private ref: ChangeDetectorRef) {
+    console.log('AsideMenuComponent')
+    this.ref.markForCheck();
+  }
+
+  ngOnInit(): void {
+    this.diplomaService.getAllSection().subscribe((sections:any)=>{
+
+      this.rutas = sections
+      console.log(this.rutas)
+    })
+  }
 }

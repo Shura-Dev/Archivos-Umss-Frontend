@@ -1,31 +1,31 @@
 <!-- Dashboard -->
-<!-- <div class="menu-item">
+<div class="menu-item">
   <a
     class="menu-link without-sub"
-    routerLink="/dashboard"
+    routerLink="/configurations"
     routerLinkActive="active"
     ><span class="menu-icon">
       <span
-        [inlineSVG]="'./assets/media/icons/duotune/art/art002.svg'"
+        [inlineSVG]="'./assets/media/icons/duotune/coding/cod001.svg'"
         class="svg-icon svg-icon-2"
       ></span>
     </span>
-    <span class="menu-title" translate="MENU.DASHBOARD"></span
+    <span class="menu-title" > Configuraciones DT</span
   ></a>
-</div> -->
+</div>
 
 <!-- Layout builder -->
 <!-- <div class="menu-item">
   <a
     class="menu-link without-sub"
-    routerLink="/builder"
+    routerLink="/configurations"
     routerLinkActive="active"
     ><span class="menu-icon">
       <span
-        [inlineSVG]="'./assets/media/icons/duotune/general/gen019.svg'"
+        [inlineSVG]="'./assets/media/icons/duotune/coding/cod001.svg'"
         class="svg-icon svg-icon-2"
       ></span> </span
-    ><span class="menu-title">Layout Builder</span></a
+    ><span class="menu-title">Configuraciones</span></a
   >
 </div> -->
 <!-- Separator -->
@@ -67,15 +67,16 @@
       <div
         class="menu-sub menu-sub-accordion"
         routerLinkActive="menu-active-bg"
+        *ngFor="let ruta of rutas"
       >
       <div class="menu-item">
         <a
           class="menu-link without-sub"
           routerLinkActive="active"
-          routerLink="/crafted/diplomas/overview"
+          routerLink="/crafted/diplomas/overview/{{ruta.type_id}} "
           ><span class="menu-bullet"
             ><span class="bullet bullet-dot"></span></span
-          ><span class="menu-title">Diplomas de Bachiller</span></a
+          ><span class="menu-title"> {{ruta.name}} </span></a
         >
       </div>
         <!-- <div class="menu-item">

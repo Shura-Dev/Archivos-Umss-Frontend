@@ -1,9 +1,9 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title text-dark fw-bolder">Observaciones del Titulo</h4>
+    <h4 class="modal-title text-dark fw-bolder">Observaciones</h4>
     <button
       type="button"
-      class="close"
+      class="close btn btn-sm btn-light"
       aria-label="Close"
       (click)="modal.dismiss('Cross click')"
     >
@@ -13,25 +13,34 @@
   <div class="modal-body">
     <div class="row">
       <h3 class="text-center fw-bolder text-primary text-muted">
-      Observaciones
+        Observaciones del Titulo
       </h3>
-            </div>
-      <div >
-        <label> Pdf src </label>
-        <!-- <input (change)="onFileSelected()" [value]='pdfSrc' type="file" id="file"> -->
-        <!-- <input [(ngModel)]="page" type="number" id="page"> --> 
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <h3 class="fw-bolder text-center text-primary">
+          Lista de Observaciones
+        </h3>
       </div>
+      <div class="col-sm-4">
+        <h3 class="fw-bolder text-center text-primary">Nueva Observacion</h3>
+        <textarea
+          class="form-control form-control-solid"
+          rows="3"
+          formControlName="observaciones"
+        ></textarea>
+        <button
+          type="button"
+          class="btn btn-primary btn-sm mt-3"
+        >
+          Guardar 
+        </button>
       </div>
+    </div>
+  </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close('click')">
+    <button type="button" class="btn btn-light btn-sm" (click)="modal.close('click')">
       Cerrar
-    </button>
-    <button
-      type="button"
-      class="btn btn-primary"
-      (click)="modal.close('click')"
-    >
-      Guardar
     </button>
   </div>
 </ng-template>

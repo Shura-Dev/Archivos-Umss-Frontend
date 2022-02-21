@@ -1,4 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-tomos',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarTomosComponent implements OnInit {
 
-  constructor() { }
+  constructor( private route: Router) { }
 
   ngOnInit(): void {
   }
-
+  navigation(){
+    console.log('first')
+    this.route.navigate(['crafted/diplomas/overview'])
+  }
 }

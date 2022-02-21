@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DiplomaService } from 'src/app/modules/diplomas-titulos/diplomas-bachiller/lista-diplomas/services/diploma.service';
 
 @Component({
@@ -8,11 +9,20 @@ import { DiplomaService } from 'src/app/modules/diplomas-titulos/diplomas-bachil
 })
 export class ListaDiplomasComponent implements OnInit {
   diplomas:any
-  constructor( private diplomaService:DiplomaService) { }
+  dataSection:any
+  constructor( private diplomaService:DiplomaService, private route:ActivatedRoute, private ref:ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    const ts = this.diplomaService.getDiplomas()
-    this.diplomas = ts
+    this.route.params.subscribe((diploma)=>{
+      this.diplomaService.getSectionByUuid(diploma.uuid)
+        .subscribe((section)=>{
+            this.dataSection=section
+        })
+    })
+    this.diplomaService.getAllDiplomas().subscribe((d:any[])=>{
+      this.diplomas = d
+    })
+    this.ref.markForCheck()
   }
 delete(diploma:DiplomaService ){
   this.diplomaService

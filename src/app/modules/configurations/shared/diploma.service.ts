@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http'
-import { Diploma } from "../models/diploma.model";
+// import { Diploma } from "../models/diploma.model";
 import { Observable } from "rxjs";
 
-@Injectable({providedIn:'root'})
+@Injectable()
 
 export class DiplomaService {
   private mockDiploma =[
@@ -59,7 +59,7 @@ export class DiplomaService {
     }
   ];
   constructor( private httpClient: HttpClient){
-    console.log('diplma service desde diplma titutlo')
+    console.log('diploma service')
   }
 
   getAllRutas():Observable<any>[]{

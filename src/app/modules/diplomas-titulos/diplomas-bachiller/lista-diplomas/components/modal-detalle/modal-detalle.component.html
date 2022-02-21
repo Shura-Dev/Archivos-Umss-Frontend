@@ -3,7 +3,7 @@
     <h4 class="modal-title text-dark fw-bolder">Diplomas de Bachiller</h4>
     <button
       type="button"
-      class="close"
+      class="close btn btn-sm btn-light"
       aria-label="Close"
       (click)="modal.dismiss('Cross click')"
     >
@@ -143,44 +143,69 @@
         </div>
       </div>
       <div class="col-md-8">
-      <h3 class="text-center fw-bolder text-primary text-muted">
-        Titulo
-      </h3>
-      <div >
-        <label> Pdf src </label>
-        <!-- <input (change)="onFileSelected()" [value]='pdfSrc' type="file" id="file"> -->
-        <!-- <input [(ngModel)]="page" type="number" id="page"> -->
-      </div>
-      <pdf-viewer [src]="'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf'"
-        [render-text]="true"
-        [page]="page"
-        class="shadow-lg p-3 mb-5 bg-white rounded"  
-        [show-all]="true"
-        style="display: block; background-color: blueviolet; width: 700px; height: 650px;">
-      </pdf-viewer>
+        <h3 class="text-center fw-bolder text-primary ">Titulo</h3>
+        <div>
+          <ul class="nav nav-tabs nav-line-tabs mb-5 fs-6">
+            <li class="nav-item">
+              <button
+              [ngClass]=" antescedentes === 1 ?  'btn btn-success btn-sm' :  'btn btn-light btn-sm'"
+                autofocus="mx-auto"
+                (click)="changePdf(1)"
+              >
+                Titulo PDF
+              </button>
+            </li>
+            <li class="nav-item">
+              <button 
+              [ngClass]=" antescedentes === 2 ?  'btn btn-success btn-sm' :  'btn btn-light btn-sm'" (click)="changePdf(2)">
+                Antescedentes PDF
+              </button>
+            </li>
+          </ul>
+
+          <ng-container *ngIf="antescedentes === 1; else antesc">
+            <pdf-viewer
+              [src]="
+                'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf'
+              "
+              [render-text]="true"
+              [page]="page"
+              class="shadow-lg p-3 mb-5 bg-white rounded embed-responsive-item rounded h-700px w-100"
+              [show-all]="true"
+            >
+            </pdf-viewer>
+          </ng-container>
+          <ng-template #antesc>
+            <pdf-viewer
+              [src]="'https://www.clickdimensions.com/links/TestPDFfile.pdf'"
+              [render-text]="true"
+              [page]="page"
+              class="shadow-lg p-3 mb-5 bg-white rounded embed-responsive-item rounded h-700px w-100"
+              [show-all]="true"
+            >
+            </pdf-viewer>
+          </ng-template>
+        </div>
       </div>
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close('click')">
-      Cerrar
-    </button>
     <button
       type="button"
-      class="btn btn-primary"
+      class="btn btn-light btn-sm"
       (click)="modal.close('click')"
     >
-      Guardar
+      Cerrar
     </button>
-  </div>
-</ng-template>
+    </div>
+  </ng-template>
 
 <button
   class="btn btn-icon btn-bg-light btn-color-primary btn-sm me-1"
   (click)="openLg(content)"
 >
   <span
-    [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
+    [inlineSVG]="'./assets/media/icons/duotune/general/gen005.svg'"
     class="svg-icon svg-icon-3"
   ></span>
 </button>

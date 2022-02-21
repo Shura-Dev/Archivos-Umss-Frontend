@@ -11,6 +11,8 @@ import { PdfService } from 'src/app/modules/diplomas-titulos/diplomas-bachiller/
 })
 export class ModalDetalleComponent implements OnInit {
   page:any = 1;
+  antescedentes:number= 1;
+
   pdfSrc:string = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
   constructor( private modalService:NgbModal, private pdfService:PdfService ) { }
 
@@ -34,6 +36,9 @@ export class ModalDetalleComponent implements OnInit {
 
       reader.readAsArrayBuffer(img.files[0]);
     }
+  }
+  changePdf(n:number){
+    this.antescedentes=n;
   }
 
 }
