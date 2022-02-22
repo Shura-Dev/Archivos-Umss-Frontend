@@ -1,0 +1,116 @@
+<ng-template #content lent-model>
+  
+  <div class="modal-header">
+  
+     <h4 class="modal-title text-center text-dark fw-bolder">Registro de Busqueda </h4>
+     <button
+       type="button"
+       class="close btn btn-danger btn-light"
+       aria-label="Close"
+       (click)="modal.dismiss('Cross click')"
+     >
+       <span aria-hidden="true">
+         &times;
+       </span>
+     </button>
+   </div>
+   <div class="modal-body">
+ 
+     <div class="row">
+       <div class="">
+         <div class="card card-custom">
+           <h5 class="modal-title text-left text-dark fw-bolder">*Datos del tramite </h5>
+           <!--begin::Form-->
+           <form class="form">
+             <div class="card-body">
+               <div class="form-group">
+                 <label class="fw-bolder ">Nombre:</label>
+                 <input
+                   type="text"
+                   class="form-control form-control-solid"
+                   placeholder="Nombre de busqueda"
+                 />
+               </div>
+
+               <div class="form-group row">
+                 <div class="col-md-6">
+                   <label class="fw-bolder"> Costo:</label>
+                   <input
+                     type="text"
+                     class="form-control form-control-solid"
+                     placeholder="Costo de tramite"
+                   />
+                 </div>
+
+                 <div class="col-md-6">
+                   <label class="fw-bolder"> Cuenta:</label>
+                   <input
+                     type="text"
+                     class="form-control form-control-solid"
+                     placeholder="Numero de cuenta"
+                   />
+                 </div>
+                 
+<!--                  <div class="col-md-6">
+                   <label for="example-date-input" class="fw-bolder"
+                     >Fecha Folio</label
+                   >
+                   <input
+                     class="form-control form-control-solid"
+                     type="date"
+                     value="2011-08-19"
+                     id="example-date-input"
+                   />
+                 </div>-->
+               </div>
+              
+               <div class="form-group">
+                 <label class="fw-bolder ">Duracion:</label>
+                 <input
+                   type="text"
+                   class="form-control form-control-solid"
+                   placeholder="Duracion de tramite"
+                 />
+               </div>
+
+
+               <div class="form-group">
+                 <label for="exampleTextarea" class="text-dark fw-bolder"
+                   >Descripcion</label
+                 >
+                 <textarea
+                   class="form-control form-control-solid"
+                   rows="3"
+                 ></textarea>
+               </div>
+             </div>
+           </form>
+           <!--end::Form-->
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="modal-footer">
+     <button
+       type="button"
+       class="btn btn-light btn-sm"
+       (click)="closeLg()"
+     >
+       Cerrar
+     </button>
+     <button
+       type="button"
+       class="btn btn-primary btn-sm"
+     >
+       Guardar 
+     </button>
+   </div>
+ </ng-template>
+ 
+ <button class="btn btn-warning me-4" (click)="openLg(content)">
+   <span
+         [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'"
+         class="svg-icon svg-icon-3"
+       ></span>
+       Busquedas
+ </button>

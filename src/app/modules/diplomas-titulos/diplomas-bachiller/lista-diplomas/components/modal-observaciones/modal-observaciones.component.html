@@ -1,0 +1,47 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title text-dark fw-bolder">Observaciones del Titulo</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <h3 class="text-center fw-bolder text-primary text-muted">
+      Observaciones
+      </h3>
+            </div>
+      <div >
+        <label> Pdf src </label>
+        <!-- <input (change)="onFileSelected()" [value]='pdfSrc' type="file" id="file"> -->
+        <!-- <input [(ngModel)]="page" type="number" id="page"> --> 
+      </div>
+      </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('click')">
+      Cerrar
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="modal.close('click')"
+    >
+      Guardar
+    </button>
+  </div>
+</ng-template>
+
+<button
+  class="btn btn-icon btn-bg-light btn-color-primary btn-sm me-1"
+  (click)="openLg(content)"
+>
+  <span
+    [inlineSVG]="'./assets/media/icons/duotune/general/gen015.svg'"
+    class="svg-icon svg-icon-3"
+  ></span>
+</button>

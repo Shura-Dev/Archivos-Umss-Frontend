@@ -1,0 +1,89 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title text-center text-dark fw-bolder">FORMULARIO PARA NUEVA SECCION </h4>
+      <button
+        type="button"
+        class="close btn btn-sm btn-light"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="">
+          <div class="card card-custom">
+            <!--begin::Form-->
+            <form class="form">
+              <div class="card-body">
+                <div class="form-group">
+                  <label class="fw-bolder ">Nombre</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-solid"
+                    placeholder="Nombre de nueva Seccion"
+                  />
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label class="fw-bolder"> Codigo Seccion</label>
+                    <input
+                      type="text"
+                      class="form-control form-control-solid"
+                      placeholder="Codigo Seccion"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="example-date-input" class="fw-bolder"
+                      >Fecha Folio</label
+                    >
+                    <input
+                      class="form-control form-control-solid"
+                      type="date"
+                      value="2011-08-19"
+                      id="example-date-input"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleTextarea" class="text-dark fw-bolder"
+                    >Observaciones</label
+                  >
+                  <textarea
+                    class="form-control form-control-solid"
+                    rows="3"
+                  ></textarea>
+                </div>
+              </div>
+            </form>
+            <!--end::Form-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-light btn-sm"
+        (click)="closeLg()"
+      >
+        Cerrar
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary btn-sm"
+      >
+        Guardar 
+      </button>
+    </div>
+  </ng-template>
+  <button class="btn btn-warning me-4" (click)="openLg(content)">
+    <span
+          [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'"
+          class="svg-icon svg-icon-3"
+        ></span>
+        Busquedas
+  </button>
+
+ 
