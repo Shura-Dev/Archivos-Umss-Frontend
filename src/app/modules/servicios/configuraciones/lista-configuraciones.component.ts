@@ -39,4 +39,10 @@ export class ListaConfiguracionesComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
   }
+
+  onSaveBusquedaClicked(configuracionTramite: string) {
+    console.log("onSaveBusquedaClicked " + JSON.parse(configuracionTramite));
+    const newConfiguracionTramite = [JSON.parse(configuracionTramite)];
+    this.configuracionesFiltradas = [...this.configuracionesFiltradas, ...newConfiguracionTramite];
+  }
 }

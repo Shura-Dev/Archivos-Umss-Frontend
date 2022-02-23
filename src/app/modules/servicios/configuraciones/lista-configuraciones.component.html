@@ -13,11 +13,7 @@
       <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr017.svg'" class="svg-icon svg-icon-3"></span>
       Configuracion
     </a>
-    <!--    <a href="#" class="btn btn-warning btn-hover-rise me-5">-->
-    <!--      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr017.svg'" class="svg-icon svg-icon-3"></span>-->
-    <!--      Busqueda-->
-    <!--    </a>-->
-    <app-crear-configuraciones></app-crear-configuraciones>
+    <app-crear-configuraciones (saveBusquedaClicked)="onSaveBusquedaClicked($event)"></app-crear-configuraciones>
   </div>
 </div>
 <!-- end::Header -->
@@ -50,7 +46,7 @@
         <th class="min-w-100px">Asociado</th>
         <th class="min-w-100px">Duracion</th>
         <th class="min-w-100px">Costo</th>
-        <th class="min-w-100px text-end rounded-end px-4">Opciones</th>
+        <th class="min-w-200px text-end rounded-end px-4">Opciones</th>
       </tr>
       </thead>
       <!-- end::Table head -->

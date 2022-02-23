@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {ConfiguracionesService} from "../services/configuraciones.service";
 import {FormControl, FormGroup} from "@angular/forms";
@@ -12,6 +12,7 @@ export class CrearConfiguracionesComponent implements OnInit {
   @Input() widgetHeight: String = '130px';
   modal: NgbModalRef
   closeResult: string;
+  @Output() saveBusquedaClicked: EventEmitter<string> = new EventEmitter<string>();
 
   busquedaForm = new FormGroup({
     nombre: new FormControl(null),
@@ -40,12 +41,18 @@ export class CrearConfiguracionesComponent implements OnInit {
     const formValue = this.busquedaForm.getRawValue();
     const newSection: any = {
       ...formValue,
-
     }
 
-    this.configuracionesService.save(newSection)
-      .subscribe(() => {
-        this.closeModalBusqueda()
-      });
+    this.configuracionesService.save(newSection).subscribe({
+      next: (responseConfiguraciones) => {
+        this.saveBusquedaClicked.emit(JSON.stringify(responseConfiguraciones))
+        this.busquedaForm.reset();
+      },
+      error: (err) => {
+        console.log("addBusqueda error: " + err);
+      }
+    });
+    this.closeModalBusqueda()
   }
+
 }
