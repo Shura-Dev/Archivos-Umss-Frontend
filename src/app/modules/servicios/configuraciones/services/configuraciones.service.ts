@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {IConfiguracionTramite} from "../models/IConfiguracionTramite";
@@ -16,6 +16,7 @@ export class ConfiguracionesService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     // @ts-ignore
     configuracionTramite.id = null;
+    configuracionTramite.tipo="1";
     return this.httpClient.post<IConfiguracionTramite>(this.tramiteURL, configuracionTramite, { headers })
       .pipe(
         tap(data => console.log('createBusqueda: ' + JSON.stringify(data))),
