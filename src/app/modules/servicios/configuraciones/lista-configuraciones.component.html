@@ -56,7 +56,7 @@
       <!-- end::Table head -->
       <!-- begin::Table body -->
       <tbody>
-      <tr *ngFor="let configuracion of configuracionesFiltradas">
+      <tr  *ngFor="let configuracion of configuracionesFiltradas">
         <!--        <tr>-->
         <td>
           <a href="#" class="text-dark fw-bolder text-center text-hover-primary d-block mb-1 fs-6">
@@ -64,8 +64,10 @@
           </a>
         </td>
         <td>
-          <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
-            {{configuracion.tipo}}
+          <a *ngIf="configuracion.tipo=='1'" href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6" 
+          class="btn btn-warning">
+            
+           Busqueda
           </a>
         </td>
         <td>
