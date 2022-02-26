@@ -1,81 +1,29 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http'
 import { Diploma } from "../models/diploma.model";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
+import { FormGroup } from "@angular/forms";
+import { tap } from "rxjs/operators";
 
 @Injectable({providedIn:'root'})
 
 export class DiplomaService {
-  private mockDiploma =[
-    {
-      uuid: '21211-12654-4561235-45412',
-      id:1,
-      nombre:'pancho silpancho',
-      numero:12,
-      fecha:'01/02/2022',
-      folio:2
-    },
-    {
-      uuid: '21211-12654-4861235-99999',
-      id:2,
-      nombre:'ruben orellana',
-      numero:17,
-      fecha:'01/08/2021',
-      folio:4
-    },
-    {
-      uuid: '21211-12654-4561235-55552',
-      id:3,
-      nombre:'morthy',
-      numero:22,
-      fecha:'01/02/2028',
-      folio:3
-    },
-  ]
- rutas:any[] = [
-    {
-      uuid: '343-344-443-343',
-      name: 'Diplomas de Bachiller',
-      code: 'FCYT',
-      description:'asdfafas'
-    },
-    {
-      uuid: '343-344-443-342',
-      name: 'Certificado Academico',
-      code: 'FH',
-      description:'asdfafas'
-    },
-    {
-      uuid: '343-364-443-741',
-      name: 'Diploma Academico',
-      code: 'FH',
-      description:'asdfafas'
-    },
-    {
-      uuid: '343-344-443-322',
-      name: 'Titulo Profesional',
-      code: 'FH',
-      description:'asdfafas'
-    }
-  ];
-  constructor( private httpClient: HttpClient){
-    console.log('diplma service desde diplma titutlo')
+private _refresh$ = new Subject<void>()
+
+  constructor( private httpClient: HttpClient){}
+  get refresh$(){
+      return this._refresh$;
   }
 
-  getAllRutas():Observable<any>[]{
-    return this.rutas
+  getAllDiplomas(uuid:any):Observable<any>{
+
+    return this.httpClient.get<any>(`http://localhost:8081/v1/config/degree/`)
   }
-
-
-  getAllDiplomas():Observable<any>{
-
-    return this.httpClient.get<any>(`http://localhost:8081/v1/config/degree/bachiller`)
-  }
-  saveDiploma(datos:any){
-    return this.mockDiploma.push(datos)
+  getDiplomaByUuid(id:any){
+    return this.httpClient.get<any>(`http://localhost:8081/v1/config/degree/${id}`)
   }
   
-  saveDiplomaWithFiles(diploma: any, file: File | null, file2:File|null  ) {
+  saveDiplomaWithFiles(diploma: any, file: File | null, file2:File|null, id?:any ) {
     const formData = new FormData();
 
     console.log(diploma);
@@ -93,13 +41,32 @@ export class DiplomaService {
     formData.append('name', diploma.nombre);
     formData.append('gender', diploma.sexo);
     formData.append('nationality', diploma.nacionalidad);
-    formData.append('typeUuid', '83a27c0f-c324-48c0-ad17-6f1ddc93aee0');
-    
+    formData.append('typeUuid', id);
+    console.log(formData)
     const actionApi = `http://localhost:8081/v1/config/degree/unclassified`;
     return this.httpClient.post<any>(actionApi, formData)
-    // .subscribe((data) =>{
-    //   console.log(data);
-    // })
+      .pipe(
+        tap(() => {
+            this._refresh$.next();
+        })
+      )
+    
+  }
+  updateDiploma(diploma:any, uuid:any){
+    const formData = new FormData()
+    formData.append('degree_num', diploma.numero)
+    formData.append('date_initial', diploma.fecha)
+    formData.append('folio_num', diploma.folio)
+    formData.append('folio_date', diploma.Ffolio)
+    formData.append('observation', diploma.observaciones);
+    console.log(formData)
+    const actionApi = `http://localhost:8081/v1/config/degree/edit/${uuid}`
+    return this.httpClient.post<any>(actionApi,formData)
+    .pipe(
+      tap(() => {
+          this._refresh$.next();
+      })
+    )
   }
   deleteDiploma(){
   } 
@@ -108,16 +75,24 @@ export class DiplomaService {
 saveNewSection(section:any){
   const formData = new FormData()
   formData.append('name', section.name)
-  formData.append('code', section.codSection)
+  formData.append('code', section.codSection + '-UMSS')
   formData.append('description', section.description)
 
   const actionApi = `http://localhost:8081/v1/config/type`
   return this.httpClient.post<any>(actionApi,formData)
+  .pipe(
+    tap(() => {
+        this._refresh$.next();
+    })
+  )
 }
 getAllSection():Observable<any>{
   return this.httpClient.get<any>(`http://localhost:8081/v1/config/type`)
 }
 getSectionByUuid(uuid:any):Observable<any>{
   return this.httpClient.get<any>(`http://localhost:8081/v1/config/type/${uuid}`);
+}
+updateSectionByUuid(uuid:any, data:any):Observable<any>{
+  return this.httpClient.post<any>(`http://localhost:8081/v1/config/type/${uuid}`,data);
 }
 }

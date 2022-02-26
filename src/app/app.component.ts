@@ -13,7 +13,7 @@ import { locale as frLang } from './modules/i18n/vocabs/fr';
   selector: 'body[root]',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
   constructor(private translationService: TranslationService) {

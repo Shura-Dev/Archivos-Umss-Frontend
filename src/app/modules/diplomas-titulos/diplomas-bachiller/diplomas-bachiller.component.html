@@ -5,13 +5,13 @@
         [inlineSVG]="'./assets/media/icons/duotune/general/gen005.svg'"
         class="svg-icon svg-icon-1 svg-icon-white"
       ></span>
-      <h3 class="card-title text-white ml-3">Diplomas de Bachiller</h3>
+      <h3 class="card-title text-white ml-3">{{tipo?.name}}</h3>
     </div>
     <div class="card-toolbar">
       <button class="btn btn-sm btn-light-primary mx-1">
-        Titulos sin Tomo
+        {{tipo?.name}} Sin Tomo
       </button>
-      <app-modal-registro class="mx-1"></app-modal-registro>
+      <app-modal-registro [nameTipo]="tipo?.name" class="mx-1"></app-modal-registro>
     </div>
   </div>
   <div class="card-body py-5">

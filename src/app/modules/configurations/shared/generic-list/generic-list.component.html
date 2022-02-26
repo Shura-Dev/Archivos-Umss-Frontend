@@ -1,59 +1,156 @@
 <div class="row">
-<div class="col-xl-4" *ngFor="let org of organization">
-<div class="card card-xl-stretch mb-xl-8">
-  <!-- begin::Header -->
-<div class="card-header border-0 pt-5">
-  <h3 class="card-title align-items-start flex-column">
-    <span class="card-label fw-bolder text-dark"> Seccion: {{org.name}} </span>
-    <span class="text-muted mt-1 fw-bold fs-7">{{subTitle}} </span>
-  </h3>
+  <div class="col-xl-4" *ngFor="let org of organization">
+    <div class="card card-xl-stretch mb-xl-8">
+      <!-- begin::Header -->
+      <div class="card-header border-0 pt-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="card-label fw-bolder text-dark"> {{ org.name }} </span>
+          <span class="text-muted mt-1 fw-bold fs-7">{{ subTitle }} </span>
+        </h3>
 
-  <div class="card-toolbar">
-    <!-- begin::Menu -->
-    <button
-      type="button"
-      class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-      data-kt-menu-trigger="click"
-      data-kt-menu-placement="bottom-end"
-      data-kt-menu-flip="top-end"
-    >
-      <span
-        [inlineSVG]="'./assets/media/icons/duotune/general/gen024.svg'"
-        class="svg-icon svg-icon-2"
-      ></span>
-    </button>
-    <!-- <app-dropdown-menu1></app-dropdown-menu1> -->
-    <!-- end::Menu -->
-  </div>
-</div>
-<!-- end::Header -->
+        <div class="card-toolbar">
+          <!-- begin::Menu -->
 
-<!-- begin::Body -->
-<div class="card-body pt-5" >
-  <!-- begin::Item -->
-  <div class="d-flex align-items-center mb-3">
-    <!-- begin::Symbol -->
-    <div class="symbol symbol-50px me-5">
-      <span class="symbol-label bg-light-success">
-        <span
-          [inlineSVG]="'./assets/media/icons/duotune/abstract/abs027.svg'"
-          class="svg-icon svg-icon-2x svg-icon-success"
-        ></span>
-      </span>
+          <!-- Edit Modal -->
+          <ng-template #content let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title text-center text-dark fw-bolder">
+                FORMULARIO PARA EDITAR SECCION
+              </h4>
+              <button
+                type="button"
+                class="close btn btn-sm btn-light"
+                aria-label="Close"
+                (click)="modal.dismiss('Cross click')"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="">
+                  <div class="card card-custom">
+                    <!--begin::Form-->
+                    <form class="form" [formGroup]="editForm">
+                      <div class="card-body">
+                        <div class="form-group">
+                          <label class="fw-bolder"
+                            >Nombre {{ org.type_id }}</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control form-control-solid"
+                            placeholder="Nombre de nueva Seccion"
+                            formControlName="name"
+                          />
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-md-6">
+                            <label class="fw-bolder"> Codigo Seccion</label>
+                            <input
+                              type="text"
+                              class="form-control form-control-solid"
+                              placeholder="Codigo Seccion"
+                              formControlName="code"
+                            />
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label
+                            for="exampleTextarea"
+                            class="text-dark fw-bolder"
+                            >Descripcion</label
+                          >
+                          <textarea
+                            class="form-control form-control-solid"
+                            rows="3"
+                            formControlName="description"
+                          ></textarea>
+                        </div>
+                      </div>
+                    </form>
+                    <!--end::Form-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-light btn-sm"
+                (click)="closeLg()"
+              >
+                Cerrar
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary btn-sm"
+                (click)="editSection(org.type_id)"
+              >
+                Guardar
+              </button>
+            </div>
+          </ng-template>
+          <button
+            type="button"
+            class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
+            data-kt-menu-placement="bottom-end"
+            data-kt-menu-flip="top-end"
+            (click)="openLg(content, org)"
+          >
+            <span
+              [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
+              class="svg-icon svg-icon-2"
+            ></span>
+          </button>
+          <!-- End Edit Modal -->
+          <!-- <button
+    type="button"
+    class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
+    data-kt-menu-trigger="click"
+    data-kt-menu-placement="bottom-end"
+    data-kt-menu-flip="top-end"
+  >
+    <span
+      [inlineSVG]="'./assets/media/icons/duotune/arrows/arr015.svg'"
+      class="svg-icon svg-icon-2"
+    ></span>
+  </button> -->
+        </div>
+      </div>
+      <!-- end::Header -->
+
+      <!-- begin::Body -->
+      <div class="card-body pt-5">
+        <!-- begin::Item -->
+        <div class="d-flex align-items-center mb-3">
+          <!-- begin::Symbol -->
+          <div class="symbol symbol-50px me-5">
+            <span class="symbol-label bg-light-success">
+              <span
+                [inlineSVG]="'./assets/media/icons/duotune/abstract/abs027.svg'"
+                class="svg-icon svg-icon-2x svg-icon-success"
+              ></span>
+            </span>
+          </div>
+          <!-- end::Symbol -->
+          <!-- begin::Text -->
+          <div class="d-flex flex-column">
+            <a
+              routerLink="/configurations/{{ orgLink.route }}/{{ org.type_id }}"
+              class="text-dark text-hover-primary fs-6 fw-bolder"
+            >
+              {{ org.name }}
+            </a>
+            <span class="text-muted fw-bold">
+              <pre> {{ org.code }}</pre>
+            </span>
+          </div>
+          <!-- end::Text -->
+        </div>
+        <!-- end::Item -->
+      </div>
+      <!-- end::Body -->
     </div>
-    <!-- end::Symbol -->
-    <!-- begin::Text -->
-    <div class="d-flex flex-column">
-      <a routerLink="/configurations/{{orgLink.route}}/{{org.type_id}}" class="text-dark text-hover-primary fs-6 fw-bolder">
-        {{org.name}}
-      </a>
-      <span class="text-muted fw-bold"> <pre> {{org.code}}</pre> </span>
-    </div>
-    <!-- end::Text -->
   </div>
-  <!-- end::Item -->
-</div>
-<!-- end::Body -->
-</div>
-</div>
 </div>

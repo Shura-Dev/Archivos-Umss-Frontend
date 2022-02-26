@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DiplomaService } from './lista-diplomas/services/diploma.service';
 
 
 @Component({
@@ -9,10 +10,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./diplomas-bachiller.component.scss']
 })
 export class DiplomasBachillerComponent implements OnInit {
-
-  constructor( private router:Router, private location:Location) { }
+  
+  uuid:any
+  tipo:any
+  constructor( private router:ActivatedRoute, private location:Location, private diplomaService:DiplomaService) { }
 
   ngOnInit(): void {
+    this.router.params.subscribe((r) =>{
+      this.diplomaService.getSectionByUuid(r.uuid).subscribe((e)=> this.tipo = e)
+    })
   }
 
 back():void{

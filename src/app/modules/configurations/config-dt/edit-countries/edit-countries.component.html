@@ -17,7 +17,7 @@
       <div class="">
         <div class="card card-custom">
           <!--begin::Form-->
-          <form class="form" [formGroup]="sectionForm">
+          <form class="form" [formGroup]="editCountryForm">
             <div class="card-body">
               <div class="form-group">
                 <label class="fw-bolder">Nombre</label>
@@ -35,7 +35,18 @@
                     type="text"
                     class="form-control form-control-solid"
                     placeholder="Codigo "
-                    formControlName="codSection"
+                    formControlName="code"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-6">
+                  <label class="fw-bolder"> Gentilicio</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-solid"
+                    placeholder="Gentilicio "
+                    formControlName="demonym"
                   />
                 </div>
               </div>
@@ -60,7 +71,7 @@
     <button type="button" class="btn btn-light btn-sm" (click)="closeLg()">
       Cerrar
     </button>
-    <button type="button" class="btn btn-primary btn-sm" (click)="addSection()">
+    <button type="button" class="btn btn-primary btn-sm" (click)="editC()">
       Guardar
     </button>
   </div>
@@ -68,10 +79,10 @@
 
 <button
   class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary"
-  (click)="openLg(content)"
+  (click)="openLg(content, country)"
 >
   <span
     [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
-    class="svg-icon svg-icon-2x svg-icon-primary"
+    class="svg-icon svg-icon-1x svg-icon-primary"
   ></span>
 </button>

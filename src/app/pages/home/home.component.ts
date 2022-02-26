@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { FakeAPIService } from 'src/app/_fake';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,15 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   @Input() inlineSVG: string="";
-  constructor() { }
+  user:any
+  constructor( private apiService:FakeAPIService) { }
 
   ngOnInit(): void {
+    this.getData()
+  }
+  getData(){
+    console.log(this.apiService.createDb())
+    this.user = this.apiService.createDb()
   }
 
 }

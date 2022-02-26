@@ -11,34 +11,17 @@ export class AsideMenuComponent implements OnInit {
   appAngularVersion: string = environment.appVersion;
   appPreviewChangelogUrl: string = environment.appPreviewChangelogUrl;
 
-  @Input() title: string;
-  @Input() subTitle: string;
-  @Input() actionLink: {
-    label: string,
-    route: string[]
-  }
-  @Input() organizations: [];
-  @Input() leftLink: {
-    label: string,
-    route: string
-  };
-  @Input() rightLink: {
-    label: string,
-    route: string
-  };
-
   rutas:any
   
-  constructor(private diplomaService: DiplomaService, private ref: ChangeDetectorRef) {
-    console.log('AsideMenuComponent')
-    this.ref.markForCheck();
+  constructor(private diplomaService: DiplomaService) {
   }
-
+  
   ngOnInit(): void {
+    this.getData()
+  }
+  getData(){
     this.diplomaService.getAllSection().subscribe((sections:any)=>{
-
       this.rutas = sections
-      console.log(this.rutas)
     })
   }
 }

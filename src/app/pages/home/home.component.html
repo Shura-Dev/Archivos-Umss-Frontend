@@ -1,6 +1,6 @@
-<mat-card>
-  <mat-card-title>Seccion Archivos</mat-card-title>
-  <mat-card-subtitle>
+<mat-card class="w-75 mx-auto">
+  <mat-card-title class="text-center">Seccion Archivos</mat-card-title>
+  <mat-card-subtitle class="text-center">
     Bienvenidos al SID.
   </mat-card-subtitle>
 
@@ -9,12 +9,15 @@
   <!--  </mat-card-content>-->
 
   <div class="row mb-6">
-    <div class="col-lg-4 col-form-label required fw-bold fs-6">
-      <img class="row mb-6" src="assets/media/misc/seccion_archivos.png" alt="archivos">
+    <div class="col-lg-6 col-form-label required fw-bold fs-6">
+      <img class="row mb-6 mx-auto" src="assets/media/misc/seccion_archivos.png" alt="archivos">
     </div>
-    <div class="col-lg-8 fv-row">
-      <p class="fw-boldest fs-6 text-dark">Sistema de informacion digital</p>
+    <div class="col-lg-6 fv-row my-auto">
+      <p class="fw-boldest fs-6 text-dark">Sistema de Informacion Digital</p>
       <p class="fw-bolder fs-6 text-dark">Archivos UMSS</p>
+      <p class="fw-bolder fs-6 text-dark">Bienvenido: <span class="text-muted mt-1 fw-bold fs-7"> {{user.users[0].firstname}} {{user.users[0].lastname}} </span>  </p>
+      <p class="fw-bolder fs-6 text-dark">Rol: <span class="text-muted mt-1 fw-bold fs-7"> {{user.users[0].username}}</span> </p>
+
     </div>
   </div>
 </mat-card>
