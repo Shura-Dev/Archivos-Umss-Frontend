@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 
 const Routing: Routes = [
   {
@@ -11,9 +11,9 @@ const Routing: Routes = [
       import('./builder/builder.module').then((m) => m.BuilderModule),
   },
   {
-    path:'configurations',
-    loadChildren:() =>
-      import('../modules/configurations/configurations.module').then((m)=> m.ConfigurationsModule)
+    path: 'configurations',
+    loadChildren: () =>
+      import('../modules/configurations/configurations.module').then((m) => m.ConfigurationsModule)
   },
   {
     path: 'crafted/pages/profile',
@@ -29,6 +29,11 @@ const Routing: Routes = [
     path: 'crafted/diplomas',
     loadChildren: () =>
       import('../modules/diplomas-titulos/diplomas-titulos.module').then((m) => m.DiplomasTitulosModule),
+  },
+  {
+    path: 'crafted/servicios',
+    loadChildren: () =>
+      import('../modules/servicios/servicios.module').then((m) => m.ServiciosModule),
   },
   {
     path: 'crafted/pages/wizards',
@@ -58,4 +63,4 @@ const Routing: Routes = [
   },
 ];
 
-export { Routing };
+export {Routing};
