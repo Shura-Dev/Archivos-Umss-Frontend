@@ -21,7 +21,7 @@ export class ModalRegistroComponent implements OnInit {
 countries:any
 grade:any
 gender:any=['Masculino', 'Femenino']
-
+studentCi:any
   diplomaForm = new FormGroup({
     numero: new FormControl(null),
     fecha: new FormControl(null),
@@ -108,6 +108,24 @@ gender:any=['Masculino', 'Femenino']
           )
         });
     }
+    getStudentCI(ci: any) {
+      // 98566325
+      this.diplomaService.getStudent(ci).subscribe((fac: any) => {
+        this.studentCi = fac
+  
+  //  const  studentForm = new FormGroup({
+  //     ci: fac.ci,
+  //     pasaporte: fac.ci,
+  //     apellidos: fac.lastname,
+  //     nombre: fac.name,
+  //     sexo: fac.gender,
+  //     nacionalidad: fac.nationality,
+  //   });
+  console.log('obteniendo estudiante')
+        console.log(fac)
+      });
+    }
+  
   }
 
 // }

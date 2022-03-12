@@ -137,6 +137,7 @@
                     class="form-control form-control-solid"
                     placeholder="Numero de Carnet"
                     formControlName="ci"
+                    (change)="getStudentCI($any($event).target.value)"
                   />
                 </div>
                 
@@ -157,6 +158,7 @@
                   class="form-control form-control-solid"
                   placeholder="Apellidos"
                   formControlName="apellidos"
+                  [value]="studentCi?.lastname"
                 />
               </div>
               <div class="form-group mb-3">
@@ -166,31 +168,57 @@
                   class="form-control form-control-solid"
                   placeholder="Nombres"
                   formControlName="nombre"
+                  [value]="studentCi?.name"
                 />
               </div>
               <div class="form-group mb-3">
                 <label class="fw-bolder">Sexo</label>
-                <select class="form-select form-select-solid"
-                data-kt-select2="true"
-                data-placeholder="Select option"
-                data-allow-clear="true"  formControlName="sexo">
-                  <option *ngFor="let g of gender" [value]="g">{{g}} </option>
-                </select>
+                <ng-container *ngIf="studentCi; else elseTemplate">
+                  <select class="form-select form-select-solid"
+                  data-kt-select2="true"
+                  data-placeholder="Select option"
+                  data-allow-clear="true"  formControlName="sexo">
+                    <option  [value]="studentCi?.gender" [selected]=true>{{studentCi?.gender}} </option>
+                  </select>
+                  </ng-container>
+                  <ng-template #elseTemplate>
+                  <select class="form-select form-select-solid"
+                  data-kt-select2="true"
+                  data-placeholder="Select option"
+                  data-allow-clear="true"  formControlName="sexo">
+                    <option *ngFor="let g of gender" [value]="g" [selected]=true>{{g}} </option>
+                  </select> 
+                  </ng-template>
+  
               </div>
               <div class="form-group mb-3">
                 <label class="fw-bolder">Nacionalidad</label>
                 <!-- <select class="form-control custom-select form-control-solid" >
                   <option *ngFor="let country of countries"> {{country.name}}</option>
                 </select> -->
-                <select
+                <ng-container *ngIf="studentCi; else elseTemplates">
+                  <select
                 class="form-select form-select-solid"
                 data-kt-select2="true"
                 data-placeholder="Select option"
                 data-allow-clear="true"
                 formControlName="nacionalidad"
                 >
-                <option *ngFor="let country of countries" [value]="country.name"> {{country.name}}</option>
-              </select>
+                <option  [value]="studentCi?.nationality" [selected]=true> {{studentCi?.nationality}}</option>
+              </select> 
+                </ng-container>
+                <ng-template #elseTemplates>
+                 <select
+                class="form-select form-select-solid"
+                data-kt-select2="true"
+                data-placeholder="Select option"
+                data-allow-clear="true"
+                formControlName="nacionalidad"
+                >
+                <option *ngFor="let country of countries" [value]="country.name" [selected]=true> {{country.name}}</option>
+              </select>  
+                </ng-template>
+
               </div>
             </div>
           </form>

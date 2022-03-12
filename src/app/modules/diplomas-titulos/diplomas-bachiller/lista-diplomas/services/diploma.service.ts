@@ -95,4 +95,8 @@ getSectionByUuid(uuid:any):Observable<any>{
 updateSectionByUuid(uuid:any, data:any):Observable<any>{
   return this.httpClient.post<any>(`http://localhost:8081/v1/config/type/${uuid}`,data);
 }
+getStudent(ci:any):Observable<any> {
+  return this.httpClient.get<any>(`http://localhost:8081/v1/config/students/ci/${ci}`)
+}
+
 }
