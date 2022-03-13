@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap'
 import { FormControl, FormGroup} from '@angular/forms'
 import { DiplomaService } from 'src/app/modules/diplomas-titulos/diplomas-bachiller/lista-diplomas/services/diploma.service';
+
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-create-section',
@@ -25,8 +27,10 @@ export class CreateSectionComponent implements OnInit {
   }
   closeResult: string;
 
-  constructor(private modalService: NgbModal, private diplomaService:DiplomaService) {}
-
+  constructor(private modalService: NgbModal, private diplomaService:DiplomaService, private ref:ChangeDetectorRef) {}
+  refresh(){
+    this.ref.detectChanges()
+  }
 
   openLg(content : any) {
     this.modal = this.modalService.open(content);
@@ -35,12 +39,7 @@ export class CreateSectionComponent implements OnInit {
     this.sectionForm.reset()
     this.modal.close()
   }
-  guardarDiploma(){
-    console.log(this.sectionForm.getRawValue());
-    this.diplomaService.saveDiploma(this.sectionForm.getRawValue())
-    this.sectionForm.reset()
-    this.modal.close()
-  }
+  
   addSection() {
     console.log('add faculty', this.sectionForm.getRawValue(), this.sectionForm.valid);
 
@@ -54,6 +53,12 @@ export class CreateSectionComponent implements OnInit {
       this.diplomaService.saveNewSection(newSection)
         .subscribe((s: any) => {
           this.closeLg()
+          Swal.fire(
+            'Registrado Correctamente!',
+            // 'You clicked the button!',
+            // 'success'
+          )
+          this.refresh()
         });
     }
 

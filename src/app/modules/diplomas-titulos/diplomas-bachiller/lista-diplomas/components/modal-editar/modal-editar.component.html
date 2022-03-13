@@ -32,16 +32,16 @@
                 <input
                   class="form-control form-control-solid"
                   type="date"
-                  value="2011-08-19"
+                  [value]="diploma?.date_initial"
                   id="example-date-input"
                   formControlName="fecha"
                 />
               </div>
               <div class="form-group">
                 <label class="fw-bolder">Seleccione Grado</label>
-                <select class="form-control custom-select form-control-solid" formControlName="grado">
-                  <option selected>BACHILLER</option>
-                  <option>ACADEMICO</option>
+                <select class="form-control custom-select form-control-solid" formControlName="grado" >
+                  <option [value]="diploma?.typeFileDTO.name" >{{diploma?.typeFileDTO.name}}</option>
+                  <!-- <option>ACADEMICO</option> -->
                 </select>
               </div>
               <div class="form-group row">
@@ -61,7 +61,7 @@
                   <input
                     class="form-control form-control-solid"
                     type="date"
-                    value="2011-08-19"
+                    [value]="diploma?.folio_date"
                     id="example-date-input"
                     formControlName="Ffolio"
                   />
@@ -124,18 +124,6 @@
                     formControlName="ci"
                   />
                 </div>
-                <div class="col-md-6">
-                  <label for="example-date-input" class="fw-bolder text-danger"
-                    >Expedido en:</label
-                  >
-                  <input
-                    class="form-control form-control-solid"
-                    type="text"
-                    value="2011-08-19"
-                    id="example-date-input"
-                    formControlName="expiraCi"
-                  />
-                </div>
               </div>
               <div class="form-group">
                 <label class="fw-bolder">N.- Pasaporte</label>
@@ -166,15 +154,15 @@
               </div>
               <div class="form-group">
                 <label class="fw-bolder">Sexo</label>
-                <select class="form-control custom-select form-control-solid" value="asdfas" formControlName="sexo">
-                  <option selected>Masculino</option>
+                <select class="form-control custom-select form-control-solid"  formControlName="sexo">
+                  <option>Masculino</option>
                   <option>Femenino</option>
                 </select>
               </div>
               <div class="form-group">
                 <label class="fw-bolder">Nacionalidad</label>
-                <select class="form-control custom-select form-control-solid" formControlName="nacionalidad">
-                  <option selected>Bolivia</option>
+                <select class="form-control custom-select form-control-solid" disabled >
+                  <option > {{diploma?.studentDTO.nationality}} </option>
                 </select>
               </div>
             </div>
@@ -195,14 +183,14 @@
     <button
       type="button"
       class="btn btn-primary btn-sm"
-      (click)="addDiplomaWithFiles()"
+      (click)="updateDiploma(diploma.degree_id)"
     >
       Guardar 
     </button>
   </div>
 </ng-template>
 
-<button class="btn btn-icon btn-bg-light btn-color-primary btn-sm me-1" (click)="openLg(content)">
+<button class="btn btn-icon btn-bg-light btn-color-primary btn-sm me-1" (click)="openLg(content, diploma)">
   <span
         [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
         class="svg-icon svg-icon-3"

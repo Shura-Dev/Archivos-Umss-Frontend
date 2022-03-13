@@ -10,8 +10,8 @@
         class="svg-icon svg-icon-2"
       ></span>
     </span>
-    <span class="menu-title" > Configuraciones DT</span
-  ></a>
+    <span class="menu-title"> Configuraciones DT</span></a
+  >
 </div>
 
 <!-- Layout builder -->
@@ -44,13 +44,14 @@
   data-kt-menu-trigger="click"
   routerLinkActive="here show"
 >
-  <span class="menu-link"
+  <span class="menu-link" 
     ><span class="menu-icon"
       ><span
         class="svg-icon svg-icon-2"
         [inlineSVG]="'./assets/media/icons/duotune/general/gen022.svg'"
       ></span></span
-    ><span class="menu-title">Diplomas y Titulos</span><span class="menu-arrow"></span
+    ><span class="menu-title">Diplomas y Titulos</span
+    ><span class="menu-arrow"></span
   ></span>
   <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
     <div
@@ -58,7 +59,7 @@
       routerLinkActive="here show"
       data-kt-menu-trigger="click"
     >
-      <span class="menu-link"
+      <span class="menu-link "(click)="getData()"
         ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span
         ><span class="menu-title" data-link="/crafted/diplomas"
           >Listar Tomos</span
@@ -69,16 +70,16 @@
         routerLinkActive="menu-active-bg"
         *ngFor="let ruta of rutas"
       >
-      <div class="menu-item">
-        <a
-          class="menu-link without-sub"
-          routerLinkActive="active"
-          routerLink="/crafted/diplomas/overview/{{ruta.type_id}} "
-          ><span class="menu-bullet"
-            ><span class="bullet bullet-dot"></span></span
-          ><span class="menu-title"> {{ruta.name}} </span></a
-        >
-      </div>
+        <div class="menu-item">
+          <a
+            class="menu-link without-sub"
+            routerLinkActive="active"
+            routerLink="/crafted/diplomas/overview/{{ ruta.type_id }} "
+            ><span class="menu-bullet"
+              ><span class="bullet bullet-dot"></span></span
+            ><span class="menu-title"> {{ ruta.name }} </span></a
+          >
+        </div>
         <!-- <div class="menu-item">
           <a
             class="menu-link without-sub"
@@ -413,10 +414,10 @@
       </a>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- Widgets -->
-<div
+<!-- <div
   class="menu-item menu-accordion"
   data-kt-menu-trigger="click"
   routerLinkActive="here show"
@@ -486,6 +487,4 @@
       >
     </div>
   </div>
-</div>
-
-
+</div> -->

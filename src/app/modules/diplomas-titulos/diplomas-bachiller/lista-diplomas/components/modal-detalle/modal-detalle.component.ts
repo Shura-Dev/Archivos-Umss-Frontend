@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { NgbModal }  from '@ng-bootstrap/ng-bootstrap'
 import { PdfViewerComponent } from 'ng2-pdf-viewer'
 import { PdfService } from 'src/app/modules/diplomas-titulos/diplomas-bachiller/lista-diplomas/services/pdf.service';
+import { DiplomaService } from '../../services/diploma.service';
 
 @Component({
   selector: 'app-modal-detalle',
@@ -10,33 +13,28 @@ import { PdfService } from 'src/app/modules/diplomas-titulos/diplomas-bachiller/
   providers:[PdfService]
 })
 export class ModalDetalleComponent implements OnInit {
+  @Input() array:any
   page:any = 1;
   antescedentes:number= 1;
+  detailDegree:any
+  constructor( private modalService:NgbModal, private pdfService:PdfService, private route:ActivatedRoute, private diplomaService:DiplomaService ) { }
 
-  pdfSrc:string = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
-  constructor( private modalService:NgbModal, private pdfService:PdfService ) { }
 
   ngOnInit(): void {
-    // this.pdfSrc = this.pdfService.getPDF()
-    // this.onFileSelected()
+    console.log('init detalle')
+
+    this.diplomaService.getDiplomaByUuid(this.array.degree_id).subscribe((res:any[])=>{
+      console.log(res) 
+      // console.log(res?.studentRecordDTOS.path) 
+      this.detailDegree=res
+      console.log(this.detailDegree.attachmentDTOS[0].path)
+    })
   }
-  openLg(content:any){
+  openLg(content:any, array:any){
     this.modalService.open(content,{size:'xl'})
+    
   }
-  onFileSelected() {
-    let img: any = document.querySelector("#file");
-
-    if(typeof (FileReader) !== 'undefined') {
-      let reader = new FileReader();
-
-      reader.onload = (e:any) => {
-        this.pdfSrc = e.target.result;
-        console.log(this.pdfSrc);
-      }
-
-      reader.readAsArrayBuffer(img.files[0]);
-    }
-  }
+  
   changePdf(n:number){
     this.antescedentes=n;
   }

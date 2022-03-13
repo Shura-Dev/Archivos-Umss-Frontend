@@ -10,7 +10,6 @@ import { CreateSectionComponent } from './config-dt/create-section/create-sectio
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateCountriesComponent } from './config-dt/create-countries/create-countries.component';
 import { EditCountriesComponent } from './config-dt/edit-countries/edit-countries.component';
-import { DiplomaService } from './shared/diploma.service';
 
 
 
@@ -21,7 +20,7 @@ import { DiplomaService } from './shared/diploma.service';
     CrudDTComponent,
     CreateSectionComponent,
     CreateCountriesComponent,
-    EditCountriesComponent
+    EditCountriesComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +29,6 @@ import { DiplomaService } from './shared/diploma.service';
     InlineSVGModule,
     GenericListModule
   ],
-  providers:[DiplomaService]
+
 })
 export class ConfigurationsModule { }

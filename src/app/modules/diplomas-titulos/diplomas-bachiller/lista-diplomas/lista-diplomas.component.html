@@ -1,7 +1,7 @@
 <!-- begin::Header -->
 <div class="card-header border-0 pt-5">
   <span class="card-label fw-bolder fs-7 mb-1">Cantidad de Titulos: 
-    <span class="text-muted mt-1 fw-bold fs-7"> 500</span>
+    <span class="text-muted mt-1 fw-bold fs-7"> {{ diplomas?.length}}</span>
     </span>
   <h3 class="card-title mx-auto ">
     <div class="text-inverse-dark bg-dark w-400px text-center">  {{dataSection?.name}}</div>
@@ -15,11 +15,10 @@
 
   <div class="separator my-0 mb-3"></div>
   <div class="d-flex flex-row justify-content-between">
-    <span class="text-muted mt-1 fw-bold fs-7 d-flex flex-row my-3">Mostrando <input type="number" name="" id="" class="form-control w-80px h-25px mx-3"> entradas</span>
+    <span class="text-muted mt-1 fw-bold fs-7 d-flex flex-row my-3">Mostrando <input type="number" name="" id="" [value]="diplomas?.length" disabled class="form-control w-80px h-25px mx-3"> entradas</span>
     <span class="text-muted mt-1 fw-bold fs-7 d-flex flex-row my-3">Filtrar <input class="form-control w-120px h-25px mx-3" type="text" name="" id=""></span>
   </div>
   <div class="">
-    {{diplomas}}
   </div>
   <!-- begin::Table container -->
   <div class="table-responsive">
@@ -50,34 +49,12 @@
               {{diploma.id}}
             </a>
           </td>
-          <!-- <td>
-            <div class="d-flex align-items-center">
-              <div class="symbol symbol-50px me-5">
-                <img
-                  src="./assets/media/stock/600x400/img-26.jpg"
-                  class=""
-                  alt=""
-                />
-              </div>
-              <div class="d-flex justify-content-start flex-column">
-                <a
-                  href="#"
-                  class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
-                >
-                  Sant Extreanet Solution
-                </a>
-                <span class="text-muted fw-bold text-muted d-block fs-7">
-                  HTML, JS, ReactJS
-                </span>
-              </div>
-            </div>
-          </td> -->
           <td>
             <a
               href="#"
               class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"
             >
-            {{diploma.name}}
+            {{diploma.studentDTO.name}}
             </a>
           </td>
           <td>
@@ -93,7 +70,7 @@
               href="#"
               class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"
             >
-            {{diploma.date_initial}}
+            {{diploma.date_initial.slice(0,10)}}
             </a>
           </td>
           <td>
@@ -152,8 +129,8 @@
                 class="svg-icon svg-icon-3"
               ></span>
             </a> -->
-            <app-modal-editar></app-modal-editar>
-            <app-modal-detalle></app-modal-detalle>
+            <app-modal-editar [diploma]="diploma"></app-modal-editar>
+            <app-modal-detalle [array]="diploma"></app-modal-detalle>
             <!-- <a
               href="#"
               class="

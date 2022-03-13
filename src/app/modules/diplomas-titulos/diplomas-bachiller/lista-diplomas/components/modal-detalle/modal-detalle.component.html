@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title text-dark fw-bolder">Diplomas de Bachiller</h4>
+    <h4 class="modal-title text-dark fw-bolder"> {{detailDegree?.typeFileDTO.name}}</h4>
     <button
       type="button"
       class="close btn btn-sm btn-light"
@@ -13,10 +13,11 @@
   <div class="modal-body">
     <div class="row">
       <h3 class="text-center fw-bolder text-primary text-muted">
-        Detalle del Titulo
+        Detalle {{detailDegree?.typeFileDTO.name}}
       </h3>
       <div class="col-md-4">
-        <h3 class="fw-bolder text-center text-primary">DATOS DEL TITULO</h3>
+        <h3 class="fw-bolder text-center text-primary">DATOS DEL TITULO {{detailDegree.attachmentDTOS.path|json}} </h3>
+        <!-- <span *ngFor="let item of detailDegree"> {{item.attachmentDTOS}}</span> -->
         <div class="card card-custom">
           <!--begin::Form-->
           <form class="form">
@@ -27,6 +28,8 @@
                   type="number"
                   class="form-control form-control-solid"
                   placeholder="Example input"
+                  [value]="detailDegree?.degree_num"
+                  disabled
                 />
               </div>
               <div class="form-group">
@@ -34,39 +37,39 @@
                 <input
                   class="form-control form-control-solid"
                   type="date"
-                  value="2011-08-19"
+                  [value]="detailDegree?.date_initial"
                   id="example-date-input"
+                  disabled
                 />
               </div>
               <div class="form-group">
                 <label class="fw-bolder">Seleccione Grado</label>
-                <select class="form-control custom-select form-control-solid">
-                  <option>BACHILLER</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select class="form-control custom-select form-control-solid" disabled>
+                  <option [value]="detailDegree?.typeFileDTO.name" >{{detailDegree?.typeFileDTO.name}}</option>
                 </select>
               </div>
               <div class="form-group row">
-                <div class="col-md-6">
+                <div class="col-md-5">
                   <label class="fw-bolder"> N.- Folio</label>
                   <input
                     type="number"
                     class="form-control form-control-solid"
-                    placeholder="Example input"
+                    placeholder="Numero de Folio"
+                    [value]="detailDegree?.folio_num"
+                    disabled
                   />
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-7">
                   <label for="example-date-input" class="fw-bolder"
                     >Fecha Folio</label
                   >
                   <input
                     class="form-control form-control-solid"
                     type="date"
-                    value="2011-08-19"
                     id="example-date-input"
-                  />
+                    [value]="detailDegree?.folio_date" 
+                    disabled
+                    />
                 </div>
               </div>
             </div>
@@ -85,17 +88,8 @@
                     type="number"
                     class="form-control form-control-solid"
                     placeholder="Example input"
-                  />
-                </div>
-                <div class="col-md-6">
-                  <label for="example-date-input" class="fw-bolder text-danger"
-                    >Expira</label
-                  >
-                  <input
-                    class="form-control form-control-solid"
-                    type="date"
-                    value="2011-08-19"
-                    id="example-date-input"
+                    [value]="detailDegree?.studentDTO.ci"
+                    disabled
                   />
                 </div>
               </div>
@@ -105,6 +99,8 @@
                   type="number"
                   class="form-control form-control-solid"
                   placeholder="Numero de Pasaporte"
+                  [value]="detailDegree?.studentDTO.passport"
+                  disabled
                 />
               </div>
               <div class="form-group">
@@ -113,6 +109,8 @@
                   type="text"
                   class="form-control form-control-solid"
                   placeholder="Apellidos"
+                  [value]="detailDegree?.studentDTO.lastname"
+                  disabled
                 />
               </div>
               <div class="form-group">
@@ -121,20 +119,20 @@
                   type="text"
                   class="form-control form-control-solid"
                   placeholder="Nombres"
+                  [value]="detailDegree?.studentDTO.name"
+                  disabled
                 />
               </div>
               <div class="form-group">
                 <label class="fw-bolder">Sexo</label>
-                <select class="form-control custom-select form-control-solid">
-                  <option>Masculino</option>
-                  <option>Femenino</option>
+                <select class="form-control custom-select form-control-solid" disabled>
+                  <option> {{detailDegree?.studentDTO.gender}} </option>
                 </select>
               </div>
               <div class="form-group">
                 <label class="fw-bolder">Nacionalidad</label>
-                <select class="form-control custom-select form-control-solid">
-                  <option>Bolivia</option>
-                  <option>Otros</option>
+                <select class="form-control custom-select form-control-solid" disabled>
+                  <option>{{detailDegree?.studentDTO.nationality}} </option>
                 </select>
               </div>
             </div>
@@ -165,9 +163,7 @@
 
           <ng-container *ngIf="antescedentes === 1; else antesc">
             <pdf-viewer
-              [src]="
-                'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf'
-              "
+              [src]='detailDegree?.attachmentDTOS[0].path'
               [render-text]="true"
               [page]="page"
               class="shadow-lg p-3 mb-5 bg-white rounded embed-responsive-item rounded h-700px w-100"
@@ -177,7 +173,7 @@
           </ng-container>
           <ng-template #antesc>
             <pdf-viewer
-              [src]="'https://www.clickdimensions.com/links/TestPDFfile.pdf'"
+              [src]='detailDegree?.studentRecordDTOS[0].path'
               [render-text]="true"
               [page]="page"
               class="shadow-lg p-3 mb-5 bg-white rounded embed-responsive-item rounded h-700px w-100"
@@ -202,7 +198,7 @@
 
 <button
   class="btn btn-icon btn-bg-light btn-color-primary btn-sm me-1"
-  (click)="openLg(content)"
+  (click)="openLg(content, array)"
 >
   <span
     [inlineSVG]="'./assets/media/icons/duotune/general/gen005.svg'"
