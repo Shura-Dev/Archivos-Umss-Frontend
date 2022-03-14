@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ServiciosComponent} from "./servicios.component";
 import {TramitesComponent} from "./tramites/tramites.component";
 import {ReportesComponent} from "./reportes/reportes.component";
-import {ListaConfiguracionesComponent} from "./configuraciones/lista-configuraciones.component";
+import {ListaConfiguracionesComponent} from "./configuraciones/components/lista/lista-configuraciones.component";
 
 const routes: Routes = [
   {
@@ -22,8 +22,8 @@ const routes: Routes = [
         path: 'reportes',
         component: ReportesComponent
       },
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: '**', redirectTo: 'error/404' },
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
+      {path: '**', redirectTo: 'error/404'},
     ],
   },
 ];
@@ -32,4 +32,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ServiciosRoutingModule {}
+export class ServiciosRoutingModule {
+}

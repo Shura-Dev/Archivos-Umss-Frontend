@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
-import {ISolicitud} from "../models/ISolicitud";
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {IConfiguracionTramite} from "../../servicios/configuraciones/models/IConfiguracionTramite";
 import {catchError, tap} from "rxjs/operators";
-import {throwError} from "rxjs";
+import {Observable, throwError} from "rxjs";
+import {ISolicitud} from "../models/ISolicitud";
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +13,16 @@ export class SolicitudOnlineService {
   constructor(private httpClient: HttpClient) {
   }
 
-  crearSolicitud(solicitud: ISolicitud) {
+  crearSolicitud(newSolicitud: any) {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    // @ts-ignore
-    solicitud.userId = "100";
-    solicitud.email = "user@demo.com";
-    return this.httpClient.post<IConfiguracionTramite>(this.solicitudURL, solicitud, {headers})
+
+    const solicitud1 = <ISolicitud>{};
+    solicitud1.userId = "100";
+    solicitud1.email = "user@demo.com";
+    solicitud1.account = newSolicitud.cuenta;
+    solicitud1.name = newSolicitud.solicitudType;
+
+    return this.httpClient.post<ISolicitud>(this.solicitudURL, solicitud1, {headers})
       .pipe(
         tap(data => console.log('crearSolicitud: ' + JSON.stringify(data))),
         catchError(this.handleError)
@@ -40,5 +43,12 @@ export class SolicitudOnlineService {
     }
     console.log(errorMessage);
     return throwError(errorMessage);
+  }
+
+  public lista(): Observable<ISolicitud[]> {
+    return this.httpClient.get<ISolicitud[]>(this.solicitudURL).pipe(
+      tap((data) => console.log('Response: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
   }
 }

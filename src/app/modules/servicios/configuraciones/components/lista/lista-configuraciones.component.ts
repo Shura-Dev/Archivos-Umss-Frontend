@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {IConfiguracionTramite} from "./models/IConfiguracionTramite";
-import {ConfiguracionesService} from "./services/configuraciones.service";
+import {IConfiguracionTramite} from "../../models/IConfiguracionTramite";
+import {ConfiguracionesService} from "../../services/configuraciones.service";
 import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
 

@@ -5,8 +5,8 @@ import {ReportesComponent} from './reportes/reportes.component';
 import {ServiciosComponent} from './servicios.component';
 import {ServiciosRoutingModule} from "./servicios-routing.module";
 import {InlineSVGModule} from "ng-inline-svg";
-import { CrearConfiguracionesComponent } from './configuraciones/components/crear-configuraciones.component';
-import {ListaConfiguracionesComponent} from "./configuraciones/lista-configuraciones.component";
+import {CrearConfiguracionesComponent} from './configuraciones/components/crear/crear-configuraciones.component';
+import {ListaConfiguracionesComponent} from "./configuraciones/components/lista/lista-configuraciones.component";
 import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
@@ -17,12 +17,12 @@ import {ReactiveFormsModule} from "@angular/forms";
     ServiciosComponent,
     CrearConfiguracionesComponent
   ],
-    imports: [
-        CommonModule,
-        ServiciosRoutingModule,
-        InlineSVGModule,
-        ReactiveFormsModule
-    ]
+  imports: [
+    CommonModule,
+    ServiciosRoutingModule,
+    InlineSVGModule,
+    ReactiveFormsModule
+  ]
 })
 export class ServiciosModule {
 }

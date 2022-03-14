@@ -19,7 +19,8 @@ export class SolicitudExampleComponent implements OnInit, OnDestroy {
 
   constructor(private _fb: FormBuilder,
               private _solicitudService: SolicitudOnlineService,
-              private _route: Router) { }
+              private _route: Router) {
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -29,11 +30,11 @@ export class SolicitudExampleComponent implements OnInit, OnDestroy {
     this.hasError = false;
 
     const solicitudFormValues = this.solicitudExampleForm.getRawValue();
-    const solicitud: any = {
+    const newSolicitud: any = {
       ...solicitudFormValues,
     }
 
-    this.sub = this._solicitudService.crearSolicitud(solicitud).subscribe({
+    this.sub = this._solicitudService.crearSolicitud(newSolicitud).subscribe({
       next: (responseSolicitud) => {
         this.solicitudExampleForm.reset();
         this._route.navigateByUrl('solicitudOnline');
