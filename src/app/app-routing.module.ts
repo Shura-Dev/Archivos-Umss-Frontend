@@ -9,6 +9,11 @@ export const routes: Routes = [
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
   {
+    path: 'solicitudOnline',
+    loadChildren: () =>
+      import('./modules/solicitud-online/solicitud-online.module').then((m) => m.SolicitudOnlineModule),
+  },
+  {
     path: 'error',
     loadChildren: () =>
       import('./modules/errors/errors.module').then((m) => m.ErrorsModule),
