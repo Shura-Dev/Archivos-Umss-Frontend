@@ -5,7 +5,7 @@
       type="button"
       class="close btn btn-sm btn-light"
       aria-label="Close"
-      (click)="modal.dismiss('Cross click')"
+      (click)="closeLg()"
     >
       <span aria-hidden="true">&times;</span>
     </button>
@@ -55,7 +55,7 @@
                 data-placeholder="Select option"
                 formControlName="grado"
                 >
-                <option class="text-muted mt-1 fw-bold fs-5" selected [value]="grade.name">{{grade.name}}</option>
+                <option class="text-muted mt-1 fw-bold fs-5"  [value]="grade.name" [selected]=true>{{grade.name}}</option>
                 
               </select>
               </div>
@@ -149,7 +149,8 @@
                   class="form-control form-control-solid"
                   placeholder="Numero de Pasaporte"
                   formControlName="pasaporte"
-                />
+                  [value]="studentCi?.passport"
+                  />
               </div>
               <div class="form-group mb-3">
                 <label class="fw-bolder"> Apellidos</label>

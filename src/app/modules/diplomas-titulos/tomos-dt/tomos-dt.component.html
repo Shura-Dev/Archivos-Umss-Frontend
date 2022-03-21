@@ -1,0 +1,61 @@
+<div class="card card-flush shadow-sm mb-3">
+  <div class="card-header bg-dark">
+    <div class="d-flex flex-row flex-center">
+     <i class="bi bi-journal-bookmark-fill text-white mx-3"></i>
+      <h3 class="card-title text-white ml-3">{{ tipo?.name }}</h3>
+    </div>
+    <div class="card-toolbar">
+      <!-- <button class="btn btn-sm btn-light-primary mx-1">
+        <span
+          [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'"
+          class="svg-icon svg-icon-3"
+        ></span>
+        {{ tipo?.name }} Sin Tomo
+      </button> -->
+      <app-create-tomo class="mx-1"></app-create-tomo>
+    </div>
+  </div>
+  <div class="card-body py-5">
+    <div class="row">
+      <!-- <div class="col-sm d-flex flex-center">
+        <button class="btn btn-sm btn-light mx-3 fw-bolder text-dark">
+          <i class="bi bi-arrow-left"></i> Atras
+        </button>
+      </div> -->
+      <div class="col-sm text-center">
+        <!-- <span class="fw-bolder text-dark">Buscar Gestion: </span>
+        <select
+          class="form-select"
+          data-control="select2"
+          data-placeholder="Select an option"
+        >
+          <option>option 0</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+        </select> -->
+      </div>
+      <div class="col-sm text-center">
+        <!-- <span class="fw-bolder text-dark"
+          >Buscar Tomo: 1
+          <select
+            class="form-select"
+            data-control="select2"
+            data-placeholder="Select an option"
+          >
+            <option>Option 0</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+          </select></span
+        > -->
+      </div>
+      <div class="col-sm text-center">
+        <!-- <span class="fw-bolder text-dark"
+          >Nr. de Tomo:
+          <input type="text" class="form-control" placeholder="Mas detalles"
+        /></span> -->
+      </div>
+      <div class="col"></div>
+    </div>
+  </div>
+</div>
+<app-listar-tomos [uuidTipo]="uuid" class="card mb-5 mb-xl-8"></app-listar-tomos>

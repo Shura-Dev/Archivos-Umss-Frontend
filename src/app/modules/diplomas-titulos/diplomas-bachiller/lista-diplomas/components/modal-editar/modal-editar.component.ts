@@ -49,9 +49,6 @@ export class ModalEditarComponent implements OnInit {
   }
   openLg(content : any, diploma:any) {
     this.modal = this.modalService.open(content, { size: 'xl' });
-    console.log('informacion del diploma')
-    console.log(diploma)
-    console.log('end')
     this.diplomaForm = new FormGroup({
     numero: new FormControl(diploma['degree_num']),
     fecha: new FormControl(diploma['date_initial']),

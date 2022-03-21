@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DiplomaService } from 'src/app/modules/diplomas-titulos/diplomas-bachiller/lista-diplomas/services/diploma.service';
@@ -10,8 +10,11 @@ import { DiplomaService } from 'src/app/modules/diplomas-titulos/diplomas-bachil
 })
 export class ListaDiplomasComponent implements OnInit,OnDestroy {
   diplomas:any
+  diplomas2:any
   dataSection:any
   suscription: Subscription
+  param:any
+  @Input() bandera:any
   constructor( private diplomaService:DiplomaService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -26,14 +29,21 @@ export class ListaDiplomasComponent implements OnInit,OnDestroy {
   }
   getData(){
     this.route.params.subscribe((diploma)=>{
+      this.param=diploma
       this.diplomaService.getSectionByUuid(diploma.uuid)
       .subscribe((section)=>{
         this.dataSection=section
         this.diplomaService.getAllDiplomas(section.type_id).subscribe((d:any[])=>{
-          console.log(d)
-          const byUuid = d.filter((e) => e.typeFileDTO.type_id === section.type_id)
+          // console.log(d)
+          const byUuid = d.filter((e) => e.typeFileDTO.type_id === section.type_id && e.groupFileDTO ===null)
+          console.log('q es esto.')
           console.log(byUuid)
           this.diplomas = byUuid
+          const byUuid2 = d.filter((e) => e.typeFileDTO.type_id === section.type_id && e.groupFileDTO !==null && e.groupFileDTO.group_file_id === this.param.id)
+          console.log('q es esto.')
+          console.log(byUuid2)
+          this.diplomas2 = byUuid2
+
         })
         })
     })
@@ -41,5 +51,12 @@ export class ListaDiplomasComponent implements OnInit,OnDestroy {
   }
 delete(diploma:DiplomaService ){
   this.diplomaService
+}
+enlazarTomo(uuid:any,id:any){
+  console.log(uuid, id)
+  this.diplomaService.enlazarTomo(uuid, id).subscribe(()=>{
+    this.getData()
+    console.log('enlazado')
+  })
 }
 }

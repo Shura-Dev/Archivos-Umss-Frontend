@@ -21,13 +21,9 @@ export class ModalDetalleComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log('init detalle')
 
     this.diplomaService.getDiplomaByUuid(this.array.degree_id).subscribe((res:any[])=>{
-      console.log(res) 
-      // console.log(res?.studentRecordDTOS.path) 
       this.detailDegree=res
-      console.log(this.detailDegree.attachmentDTOS[0].path)
     })
   }
   openLg(content:any, array:any){

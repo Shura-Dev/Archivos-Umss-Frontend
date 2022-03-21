@@ -12,6 +12,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ModalObservacionesComponent } from './diplomas-bachiller/lista-diplomas/components/modal-observaciones/modal-observaciones.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { ModalEditarComponent } from './diplomas-bachiller/lista-diplomas/components/modal-editar/modal-editar.component';
+import { TomosDtComponent } from './tomos-dt/tomos-dt.component';
+import { CreateTomoComponent } from './tomos-dt/create-tomo/create-tomo.component';
+import { ListarTomosComponent } from './tomos-dt/listar-tomos/listar-tomos.component';
+import { EditTomoComponent } from './tomos-dt/edit-tomo/edit-tomo.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { ModalEditarComponent } from './diplomas-bachiller/lista-diplomas/compon
     ModalObservacionesComponent,
     BuscadorComponent,
     ModalEditarComponent,
+    TomosDtComponent,
+    CreateTomoComponent,
+    ListarTomosComponent,
+    EditTomoComponent,
   ],
   imports: [
     CommonModule,

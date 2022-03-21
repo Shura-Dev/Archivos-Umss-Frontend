@@ -1,0 +1,122 @@
+<!-- begin::Header -->
+<div class="card-header border-0 pt-5">
+  <span class="card-label fw-bolder fs-7 mb-1"
+    >Cantidad de Titulos:
+    <span class="text-muted mt-1 fw-bold fs-7"> {{ tomos?.length }}</span>
+  </span>
+  <h3 class="card-title mx-auto">
+    <div class="text-inverse-dark bg-dark w-400px text-center">
+      Lista Tomos {{ dataSection?.name }}
+    </div>
+  </h3>
+  <div class="card-toolbar"></div>
+</div>
+<!-- end::Header -->
+<!-- begin::Body -->
+<div class="card-body py-3">
+  <div class="separator my-0 mb-3"></div>
+  <div class="d-flex flex-row justify-content-between">
+    <span class="text-muted mt-1 fw-bold fs-7 d-flex flex-row my-3"
+      >Mostrando
+      <input
+        type="number"
+        name=""
+        id=""
+        [value]="tomos?.length"
+        disabled
+        class="form-control w-80px h-25px mx-3"
+      />
+      entradas</span
+    >
+    <span class="text-muted mt-1 fw-bold fs-7 d-flex flex-row my-3"
+      >Filtrar
+      <input class="form-control w-120px h-25px mx-3" type="text" name="" id=""
+    /></span>
+  </div>
+  <div class=""></div>
+  <!-- begin::Table container -->
+  <div class="table-responsive">
+    <!-- begin::Table -->
+    <table class="table align-middle gs-0 gy-4">
+      <!-- begin::Table head -->
+      <thead>
+        <tr class="fw-bolder text-muted bg-light">
+          <!-- <th class="px-4 rounded-start min-w-40px">N.-</th> -->
+          <th class=" rounded-start min-w-150px">N.- Tomo</th>
+          <th class="min-w-225px">Rango de Documentos</th>
+          <th class="min-w-200px">Observacion</th>
+          <!-- <th class="min-w-100px">Opciones</th> -->
+          <!-- <th class="min-w-100px">Antecedentes</th> -->
+          <th class="min-w-300px text-end rounded-end px-4">Opciones</th>
+        </tr>
+      </thead>
+      <!-- end::Table head -->
+      <!-- begin::Table body -->
+      <tbody>
+        <tr *ngFor="let tomo of tomos">
+          <!-- <td>
+            <a
+              href="#"
+              class="text-dark fw-bolder text-center text-hover-primary d-block mb-1 fs-6"
+            >
+              
+            </a>
+          </td> -->
+          <td>
+            <a
+              href="#"
+              class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"
+            >
+            {{ tomo.groupnum}}
+          </a>
+        </td>
+        <td>
+          <a
+          href="#"
+          class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"
+          >
+          {{ tomo.minimumrange }} - 
+              {{ tomo.maximumrange }}
+            </a>
+          </td>
+          <td>
+            <a
+              href="#"
+              class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"
+            >
+              {{ tomo.observation}}
+            </a>
+          </td>
+          <td class="text-end">
+            <!-- <app-modal-observaciones></app-modal-observaciones> -->
+            <app-edit-tomo [tomoDiploma]="tomo"></app-edit-tomo>
+            <!-- <app-modal-editar [diploma]="diploma"></app-modal-editar> -->
+            <button
+              class="btn btn-icon btn-bg-light btn-color-primary btn-sm me-1"
+              (click)="detailTomo(tomo.group_file_id)"
+            >
+              <span
+                [inlineSVG]="'./assets/media/icons/duotune/general/gen005.svg'"
+                class="svg-icon svg-icon-3"
+              ></span>
+            </button>
+            <span
+              href="#"
+              class="btn btn-icon btn-bg-light btn-color-danger btn-sm"
+              (click)="deleteTomo(tomo.group_file_id)"
+            >
+              <span
+                [inlineSVG]="'./assets/media/icons/duotune/general/gen027.svg'"
+                class="svg-icon svg-icon-3"
+              ></span>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+      <!-- end::Table body -->
+    </table>
+    <!-- end::Table -->
+  </div>
+  <!-- end::Table container -->
+</div>
+<!-- begin::Body -->

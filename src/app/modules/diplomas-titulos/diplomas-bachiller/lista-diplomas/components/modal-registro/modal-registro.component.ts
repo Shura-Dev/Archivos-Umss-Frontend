@@ -68,6 +68,7 @@ studentCi:any
   closeLg(){
     this.diplomaForm.reset()
     this.modal.close()
+    this.studentCi = null
   }
   
   onFileSelect(event:Event){
@@ -106,21 +107,13 @@ studentCi:any
           Swal.fire(
             'Se Registro Correctamente'
           )
+          this.studentCi=null
         });
     }
     getStudentCI(ci: any) {
       // 98566325
       this.diplomaService.getStudent(ci).subscribe((fac: any) => {
         this.studentCi = fac
-  
-  //  const  studentForm = new FormGroup({
-  //     ci: fac.ci,
-  //     pasaporte: fac.ci,
-  //     apellidos: fac.lastname,
-  //     nombre: fac.name,
-  //     sexo: fac.gender,
-  //     nacionalidad: fac.nationality,
-  //   });
   console.log('obteniendo estudiante')
         console.log(fac)
       });

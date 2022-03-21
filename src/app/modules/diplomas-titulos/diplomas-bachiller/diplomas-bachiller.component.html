@@ -8,7 +8,7 @@
       <h3 class="card-title text-white ml-3">{{tipo?.name}}</h3>
     </div>
     <div class="card-toolbar">
-      <button class="btn btn-sm btn-light-primary mx-1">
+      <button class="btn btn-sm btn-light-primary mx-1" (click)="cambiarValor()">
         {{tipo?.name}} Sin Tomo
       </button>
       <app-modal-registro [nameTipo]="tipo?.name" class="mx-1"></app-modal-registro>
@@ -17,9 +17,13 @@
   <div class="card-body py-5">
     <div class="row">
       <div class="col-sm d-flex flex-center">
-        <button class="btn btn-sm btn-light mx-3 fw-bolder text-dark" ><i class="bi bi-arrow-left "></i> Atras</button>
+        <button class="btn btn-sm btn-light mx-3 fw-bolder text-dark" (click)="back()" ><i class="bi bi-arrow-left "></i> Atras</button>
       </div>
-      <div class="col-sm text-center">
+      <div class="col-sm text-center"></div>
+      <div class="col-sm text-center"></div>
+      <div class="col-sm text-center"></div>
+      <div class="col-sm text-center"></div>
+      <!-- <div class="col-sm text-center">
           <span class="fw-bolder text-dark"
           >Buscar Gestion:
         </span>
@@ -58,8 +62,8 @@
       </div>
       <div class="col">
 
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
-<app-lista-diplomas class="card mb-5 mb-xl-8"></app-lista-diplomas>
+<app-lista-diplomas [bandera]="bandera" class="card mb-5 mb-xl-8"></app-lista-diplomas>

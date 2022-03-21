@@ -13,6 +13,7 @@ export class DiplomasBachillerComponent implements OnInit {
   
   uuid:any
   tipo:any
+  bandera:boolean =false
   constructor( private router:ActivatedRoute, private location:Location, private diplomaService:DiplomaService) { }
 
   ngOnInit(): void {
@@ -25,5 +26,8 @@ back():void{
   // this.router.navigate(['crafted/diplomas/tomos'])
 
   this.location.back()
+}
+cambiarValor(){
+  this.bandera =true
 }
 }
