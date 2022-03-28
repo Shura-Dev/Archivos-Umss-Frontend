@@ -1,62 +1,65 @@
 <!-- begin::Body -->
-<div class="card-body py-3">
-  <div class="separator my-0 mb-3"></div>
-  <div class="d-flex flex-row justify-content-between">
-    <span class="text-muted mt-1 fw-bold fs-7 d-flex flex-row my-3">
-      Mostrando
-      <input type="number" name="" class="form-control w-80px h-25px mx-3"> entradas
-    </span>
-
-    <span class="text-muted mt-1 fw-bold fs-7 d-flex flex-row my-3">
-      Filtrar
-      <input class="form-control w-120px h-25px mx-3" type="text" name="" id="">
-    </span>
+<div class="card-header border-0 pt-5">
+  <div class="card-label fw-bolder fs-7 mb-1"></div>
+  <div class="card-toolbar">
+    <div class="d-flex flex-row justify-content-between">
+      <span class="text-muted mt-1 fw-bold fs-7 d-flex flex-row my-3">
+        Mostrando
+        <input type="number" name="" class="form-control w-80px h-25px mx-3"> entradas
+      </span>
+    </div>
   </div>
   <!-- begin::Table container -->
-  <div class="table-responsive">
-    <!-- begin::Table -->
-    <table class="table align-middle gs-0 gy-4">
-      <!-- begin::Table head -->
-      <thead>
-      <tr class="fw-bolder text-muted bg-light">
-        <th class="px-4 rounded-start min-w-20px">ID</th>
-        <th class="min-w-100px">User ID</th>
-        <th class="min-w-100px">User Email</th>
-        <th class="min-w-100px">No. Valorado</th>
-        <th class="min-w-100px">Tramite</th>
-      </tr>
-      </thead>
-      <!-- end::Table head -->
-      <!-- begin::Table body -->
-      <tbody>
-      <tr *ngFor="let solicitud of solicitudes">
+  <div class="card-body py-3">
+    <div class="separator my-0 mb-3"></div>
 
-        <td>
-          <a href="#" class="text-dark fw-bolder text-center text-hover-primary d-block mb-1 fs-6">
-            {{solicitud.id}}
-          </a>
-        </td>
-        <td>
-          {{solicitud.userId}}
-        </td>
-        <td>
-          <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
-            {{solicitud.email}}
-          </a>
-        </td>
-        <td>
-          {{solicitud.account}}
-        </td>
-        <td>
-          {{solicitud.name}}
-        </td>
-      </tr>
-      </tbody>
-      <!-- end::Table body -->
-    </table>
-    <!-- end::Table -->
+    <div class="">
+
+      <div class="table-responsive">
+        <!-- begin::Table -->
+        <table class="table align-middle gs-0 gy-4">
+          <!-- begin::Table head -->
+          <thead>
+          <tr class="fw-bolder text-muted bg-light">
+            <th class="px-4 rounded-start min-w-20px">ID</th>
+            <th class="min-w-100px">User ID</th>
+            <th class="min-w-100px">User Email</th>
+            <th class="min-w-100px">No. Valorado</th>
+            <th class="min-w-100px">Tramite</th>
+          </tr>
+          </thead>
+          <!-- end::Table head -->
+          <!-- begin::Table body -->
+          <tbody>
+          <tr *ngFor="let solicitud of solicitudes">
+
+            <td>
+              <a href="#" class="text-dark fw-bolder text-center text-hover-primary d-block mb-1 fs-6">
+                {{solicitud.id}}
+              </a>
+            </td>
+            <td>
+              {{solicitud.userId}}
+            </td>
+            <td>
+              <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
+                {{solicitud.email}}
+              </a>
+            </td>
+            <td>
+              {{solicitud.account}}
+            </td>
+            <td>
+              {{solicitud.name}}
+            </td>
+          </tr>
+          </tbody>
+          <!-- end::Table body -->
+        </table>
+        <!-- end::Table -->
+      </div>
+      <!-- end::Table container -->
+    </div>
+    <!-- begin::Body -->
   </div>
-  <!-- end::Table container -->
 </div>
-<!-- begin::Body -->
-
