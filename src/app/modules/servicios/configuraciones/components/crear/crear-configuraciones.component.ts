@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
-import {ConfiguracionesService} from "../services/configuraciones.service";
+import {ConfiguracionesService} from "../../services/configuraciones.service";
 import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({

@@ -1,0 +1,60 @@
+<div
+  class="
+    d-flex
+    flex-column flex-column-fluid
+    bgi-position-y-bottom
+    position-x-center
+    bgi-no-repeat bgi-size-contain bgi-attachment-fixed
+  "
+  style="background-image: url('./assets/media/illustrations/sketchy-1/14.png')"
+>
+  <!--begin::Content-->
+  <div class="d-flex flex-center flex-column flex-column-fluid p-20 pb-lg-40">
+
+    <!--begin::Content body-->
+    <div class="w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
+      <div class="text-center text-muted text-uppercase fw-bolder mb-5"
+           *ngIf="this.route.url.endsWith('solicitudOnline')">
+        <img alt="Logo" src="./assets/media/misc/inProgress.png" class="h-100px"/>
+      </div>
+
+      <!-- begin::Separator  -->
+      <div class="text-center text-muted text-uppercase fw-bolder mb-5"
+           *ngIf="this.route.url.endsWith('solicitudOnline')">
+        Solicitud de tramites
+      </div>
+
+      <a class="btn btn-flex btn-primary px-6" *ngIf="this.route.url.endsWith('solicitudOnline')" (click)="goToExample()">
+        <span class="d-flex flex-column align-items-start ms-2">
+          <span class="fs-3 fw-bolder">Nueva Solicitud</span>
+          <span class="fs-7">Solicitud ejemplo</span>
+        </span>
+      </a>
+
+      <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-2"></span>
+
+      <a class="btn btn-flex btn-danger px-6" *ngIf="this.route.url.endsWith('solicitudOnline')" (click)="logout()">
+        <span class="d-flex flex-column align-items-start ms-2">
+          <span class="fs-3 fw-bolder">Logout</span>
+        </span>
+      </a>
+
+      <router-outlet *ngIf="this.route.url.endsWith('example')"></router-outlet>
+
+    </div>
+    <!--end::Content body-->
+  </div>
+  <!--end::Content-->
+
+  <!-- begin::Footer -->
+  <div class="d-flex flex-center flex-column-auto p-10">
+    <div class="d-flex align-items-center fw-bold fs-6">
+      <a class="text-muted text-hover-primary px-2 cursor-pointer">About</a
+      ><a class="text-muted text-hover-primary px-2 cursor-pointer">Contact</a
+    ><a class="text-muted text-hover-primary px-2 cursor-pointer"
+    >Contact Us</a
+    >
+    </div>
+  </div>
+  <!-- end::Footer -->
+</div>
